@@ -29,4 +29,34 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FruitsAdd</display-name>
+    <servlet-name>FruitsAdd</servlet-name>
+    <servlet-class>admin.servlet.FruitsAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FruitsAdd</servlet-name>
+    <url-pattern>/FruitsAdd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryServlet</display-name>
+    <servlet-name>CategoryServlet</servlet-name>
+    <servlet-class>admin.servlet.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryServlet</servlet-name>
+    <url-pattern>/CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListCateServlet</display-name>
+    <servlet-name>ListCateServlet</servlet-name>
+    <servlet-class>admin.servlet.ListCateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListCateServlet</servlet-name>
+    <url-pattern>/ListCateServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

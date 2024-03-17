@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+	<div
+		class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+		<a class="sidebar-brand brand-logo" href="#">
+			<h1 class="m-0 text-primary">
+				<i class="fas fa-seedling"></i>Fruit
+			</h1>
+		</a>
+	</div>
+
+	<ul class="nav">
+		<li class="nav-item profile">
+			<div class="profile-desc">
+				<div class="profile-pic">
+					<div class="count-indicator">
+						<img class="img-xs rounded-circle" src="../img/2.jpg" alt="">
+					</div>
+					<div class="profile-name">
+						<c:if test="${not empty user }">
+							<h4 class="mb-0 font-weight-normal" href="#"
+								class="dropdown-item">${user.name}</h4>
+						</c:if>
+					</div>
+				</div>	
+			</div>
+		</li>
+
+		<li class="nav-item menu-items"><a class="nav-link"
+			href="listCate.jsp"> <span class="menu-icon"> <i
+					class="mdi mdi-speedometer"></i>
+			</span> <span class="menu-title">Danh mục</span>
+		</a></li>
+		<li class="nav-item menu-items"><a class="nav-link"
+			href="listFruits.jsp"> <span class="menu-icon"> <i
+					class="mdi mdi-speedometer"></i>
+			</span> <span class="menu-title">Sản phẩm</span>
+		</a></li>
+		<li class="nav-item menu-items">
+            <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-contacts"></i>
+              </span>
+              <span class="menu-title">Loại sản phẩm</span>
+            </a>
+          </li>
+		<li class="nav-item menu-items">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-chart-bar"></i>
+              </span>
+              <span class="menu-title">Bài viết</span>
+            </a>
+          </li>
+		<li class="nav-item menu-items"><a class="nav-link"
+			href="pages/forms/basic_elements.html"> <span class="menu-icon">
+					<i class="mdi mdi-playlist-play"></i>
+			</span> <span class="menu-title">Đơn hàng</span>
+		</a></li>
+	</ul>
+</nav>
