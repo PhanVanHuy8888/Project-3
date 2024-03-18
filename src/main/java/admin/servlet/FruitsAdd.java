@@ -3,6 +3,7 @@ package admin.servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 
+import java.io.File;
 import java.io.IOException;
 
 import conn.ConnectionUtils;
@@ -50,12 +51,14 @@ public class FruitsAdd extends HttpServlet {
 			String fileName = part.getSubmittedFileName();
 			Fruit fruit = new Fruit(fruitName, origin, price, categoryFruitId, fileName);
 			HttpSession session = request.getSession();
-			
 			FruitDaoImpl dao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 			
 			boolean f = dao.addFruit(fruit);
 			if(f) {
-			    
+				String path = getServletContext().getRealPath("") + "img";
+				File file = new File(path);
+				part.write(path + File.separator + fileName);
+				
 			    response.sendRedirect("listFruit.jsp");
 			} else {
 			    session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");

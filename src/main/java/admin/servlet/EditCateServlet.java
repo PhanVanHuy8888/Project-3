@@ -10,40 +10,36 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import conn.ConnectionUtils;
+import dao.CateFruitDaoImpl;
 import dao.CategoryDaoImpl;
-import dao.FruitDaoImpl;
 import entity.Category;
+import entity.CategoryFruit;
 
 /**
- * Servlet implementation class CategoryServlet
+ * Servlet implementation class EditCateServlet
  */
-@WebServlet("/admin/cateAdd")
-public class CategoryServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public CategoryServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
+@WebServlet("/editCate")
+public class EditCateServlet extends HttpServlet {
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			int id = Integer.parseInt(request.getParameter("id"));
 			String categoryName = request.getParameter("categoryName");
-			Category cate = new Category(categoryName);
-			HttpSession session = request.getSession();
-			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
 
-			boolean f = dao.addCate(cate);
+			Category cate = new Category();
+			cate.setCategoryId(id);
+			cate.setCategoryName(categoryName);
+			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
+			boolean f = dao.updateCate(cate);
+			HttpSession session = request.getSession();
 			if (f) {
-				response.sendRedirect("listCate.jsp");
+				response.sendRedirect("admin/listCate.jsp");
 			} else {
 				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("cateAdd.jsp");
+				response.sendRedirect("admin/cateEdit.jsp");
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

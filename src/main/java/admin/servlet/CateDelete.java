@@ -1,33 +1,29 @@
 package admin.servlet;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
 
 import conn.ConnectionUtils;
 import dao.CategoryDaoImpl;
 import entity.Category;
 
 /**
- * Servlet implementation class ListCateServlet
+ * Servlet implementation class CateDelete
  */
-@WebServlet("/admin/listCate")
-public class ListCateServlet extends HttpServlet {
+@WebServlet("/delete")
+public class CateDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListCateServlet() {
+    public CateDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,19 +31,33 @@ public class ListCateServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			
 			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
-			List<Category> cate = dao.getAllCate();
-			 request.setAttribute("category", cate);	
-			 request.getRequestDispatcher("/admin/listCate.jsp").forward(request, response);
-		}catch(Exception e) {
+			boolean f = dao.deleteCate(id);
+			HttpSession session = request.getSession();
+			
+			if (f) {
+				response.sendRedirect("admin/listCate.jsp");
+			} else {
+				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
+				response.sendRedirect("admin/listCate.jsp");
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
+		
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
 
 }

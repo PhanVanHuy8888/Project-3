@@ -35,16 +35,17 @@ public class CategoryDaoImpl implements CategoryDao{
 
 	@Override
 	public List<Category> getAllCate() {
-	    List<Category> lst = new ArrayList<>();
+	    List<Category> lst = new ArrayList<Category>();
+	    Category cate = null;
 
-	    try (
-	    	PreparedStatement pstm = conn.prepareStatement("SELECT categoryName FROM category");
-	         ResultSet rs = pstm.executeQuery()) {
-
+	    try {
+	    	String sql = "Select * from category";
+	    	PreparedStatement pstm = conn.prepareStatement(sql);
+	        ResultSet rs = pstm.executeQuery();
 	        while (rs.next()) {
-	            String categoryName = rs.getString("categoryName");
-	            Category cate = new Category();
-	            cate.setCategoryName(categoryName);
+	        	cate = new Category();
+	            cate.setCategoryId(rs.getInt(1));
+	            cate.setCategoryName(rs.getString(2));    
 	            lst.add(cate);
 	        }
 	    } catch (SQLException e) {      
@@ -53,6 +54,64 @@ public class CategoryDaoImpl implements CategoryDao{
 
 	    return lst;
 	}
+
+
+	@Override
+	public Category getCateById(int id) {
+		Category cate = null;
+		try {
+			String sql = "Select * from category where categoryId=?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, id);
+			ResultSet rs = pstm.executeQuery();
+	        while (rs.next()) {
+	        	cate = new Category();
+	            cate.setCategoryId(rs.getInt(1));
+	            cate.setCategoryName(rs.getString(2)); 
+
+	        }
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return cate;
+	}
+
+
+	@Override
+	public boolean updateCate(Category cate) {
+	    try {
+	        String sql = "update category set categoryName=? where categoryId=?";
+	        PreparedStatement pstm = conn.prepareStatement(sql);
+	        pstm.setString(1, cate.getCategoryName());
+	        pstm.setInt(2, cate.getCategoryId());
+	        int i = pstm.executeUpdate();
+	        if (i == 1) {
+	            return true;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
+	}
+
+
+	@Override
+	public boolean deleteCate(int id) {
+		try {
+	        String sql = "delete from category where categoryId=?";
+	        PreparedStatement pstm = conn.prepareStatement(sql);
+	        pstm.setInt(1, id);
+	        int i = pstm.executeUpdate();
+	        if (i == 1) {
+	            return true;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		return false;
+	}
+
 
 	
 	
