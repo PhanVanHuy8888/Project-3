@@ -43,11 +43,11 @@ public class EditCateFruit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		    String id = request.getParameter("id");
-		    String categoryFruitId = request.getParameter("cateFruitId");
+			int id = Integer.parseInt(request.getParameter("id"));		    
 		    String categoryFruitName = request.getParameter("cateFruitName");
 		    CategoryFruit cateFruit = new CategoryFruit();
-		    cateFruit.setCategoryFruitId(categoryFruitId);
+		    
+		    cateFruit.setCategoryFruitId(id);
 		    cateFruit.setCategoryFruitName(categoryFruitName);
 		    CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 		    boolean f = dao.updateCateFruit(cateFruit);

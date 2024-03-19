@@ -129,4 +129,14 @@
     <servlet-name>ListFruitCate</servlet-name>
     <url-pattern>/ListFruitCate</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListCaFruit</display-name>
+    <servlet-name>ListCaFruit</servlet-name>
+    <servlet-class>admin.servlet.ListCaFruit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListCaFruit</servlet-name>
+    <url-pattern>/ListCaFruit</url-pattern>
+  </servlet-mapping>
 </web-app>

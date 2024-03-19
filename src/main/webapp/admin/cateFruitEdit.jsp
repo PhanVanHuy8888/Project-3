@@ -53,7 +53,7 @@
 				</c:if>
 
 				<%
-				String id = request.getParameter("id");
+				int id = Integer.parseInt(request.getParameter("id"));
 				CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 				CategoryFruit cateFruit = dao.getCateFruitById(id);
 				%>

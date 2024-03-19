@@ -56,7 +56,6 @@
 				int id = Integer.parseInt(request.getParameter("id"));
 				CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
 				Category cate =  dao.getCateById(id);
-				
 				%>
 
 				<form action="../editCate" method="post" class="forms-sample">

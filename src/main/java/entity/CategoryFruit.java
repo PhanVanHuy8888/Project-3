@@ -1,41 +1,27 @@
 package entity;
 
 public class CategoryFruit {
-	private String categoryFruitId;
+	private int categoryFruitId;
 	private String categoryFruitName;
-	
 	public CategoryFruit() {
 		super();
 	}
-
-	
-
-	public CategoryFruit(String categoryFruitId, String categoryFruitName) {
+	public CategoryFruit(String categoryFruitName) {
 		super();
-		this.categoryFruitId = categoryFruitId;
 		this.categoryFruitName = categoryFruitName;
 	}
-
-
-
-	public String getCategoryFruitId() {
+	public int getCategoryFruitId() {
 		return categoryFruitId;
 	}
-
-	public void setCategoryFruitId(String categoryFruitId) {
+	public void setCategoryFruitId(int categoryFruitId) {
 		this.categoryFruitId = categoryFruitId;
 	}
-
 	public String getCategoryFruitName() {
 		return categoryFruitName;
 	}
-
 	public void setCategoryFruitName(String categoryFruitName) {
 		this.categoryFruitName = categoryFruitName;
 	}
-
-	
-	
 	
 	
 }

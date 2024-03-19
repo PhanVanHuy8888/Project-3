@@ -50,11 +50,6 @@
 				
 				<form action="cateFruitAdd" method="post" class="forms-sample">
 					<div class="form-group">
-						<label for="exampleInputName1">Mã</label> <input type="text"
-							class="form-control" name="cateFruitId" id="exampleInputName1"
-							placeholder="Name">
-					</div>
-					<div class="form-group">
 						<label for="exampleInputName1">Tên</label> <input type="text"
 							class="form-control" name="cateFruitName" id="exampleInputName1"
 							placeholder="Name">

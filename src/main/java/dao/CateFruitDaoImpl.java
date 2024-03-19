@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import entity.Category;
 import entity.CategoryFruit;
 
 public class CateFruitDaoImpl implements CateFruitDao {
@@ -20,57 +22,58 @@ public class CateFruitDaoImpl implements CateFruitDao {
 	@Override
 	public boolean addCateFruit(CategoryFruit cateFruit) {
 		try {
-			String sql = "insert into categoryfruit(categoryFruitId, categoryFruitName) value(?, ?)";
+			String sql = "insert into categoryfruit(categoryName) value(?)";
 			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, cateFruit.getCategoryFruitId());
-			pstm.setString(2, cateFruit.getCategoryFruitName());
+			pstm.setString(1, cateFruit.getCategoryFruitName());
 			int i = pstm.executeUpdate();
 			if (i == 1) {
 				return true;
 			}
-		} catch (Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 		return false;
 	}
 
 	@Override
 	public List<CategoryFruit> getAllCateFruit() {
-		List<CategoryFruit> lst = new ArrayList<CategoryFruit>();
+		 List<CategoryFruit> lst = new ArrayList<CategoryFruit>();
+		 CategoryFruit cateFruit = null;
 
-		try {
-			String sql = "SELECT * FROM categoryfruit";
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
-			while (rs.next()) {
-				CategoryFruit cateFruit = new CategoryFruit();
-				cateFruit.setCategoryFruitId(rs.getString("categoryFruitId"));
-				cateFruit.setCategoryFruitName(rs.getString("categoryFruitName"));
-				lst.add(cateFruit);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			// Xử lý ngoại lệ nếu cần
-		}
+		    try {
+		    	String sql = "Select * from categoryfruit";
+		    	PreparedStatement pstm = conn.prepareStatement(sql);
+		        ResultSet rs = pstm.executeQuery();
+		        while (rs.next()) {
+		        	cateFruit = new CategoryFruit();
+		        	cateFruit.setCategoryFruitId(rs.getInt(1));
+		        	cateFruit.setCategoryFruitName(rs.getString(2));    
+		            lst.add(cateFruit);
+		        }
+		    } catch (SQLException e) {      
+		        e.printStackTrace();
+		    }
 
-		return lst;
+		    return lst;
 	}
 
 	@Override
-	public CategoryFruit getCateFruitById(String id) {
+	public CategoryFruit getCateFruitById(int id) {
 		CategoryFruit cateFruit = null;
 		try {
 			String sql = "Select * from categoryfruit where categoryFruitId=?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, id);
+			pstm.setInt(1, id);
 			ResultSet rs = pstm.executeQuery();
-			while (rs.next()) {
-				cateFruit = new CategoryFruit();
-				cateFruit.setCategoryFruitId(rs.getString(1));
-				cateFruit.setCategoryFruitName(rs.getString(2));
-			}
-
-		} catch (Exception e) {
+	        while (rs.next()) {
+	        	cateFruit = new CategoryFruit();
+	        	cateFruit.setCategoryFruitId(rs.getInt(1));
+	        	cateFruit.setCategoryFruitName(rs.getString(2)); 
+	        }
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return cateFruit;
@@ -79,34 +82,36 @@ public class CateFruitDaoImpl implements CateFruitDao {
 	@Override
 	public boolean updateCateFruit(CategoryFruit cateFruit) {
 		try {
-			String sql = "update categoryfruit set categoryFruitName=? where categoryFruitId=?";
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, cateFruit.getCategoryFruitName());
-			pstm.setString(2, cateFruit.getCategoryFruitId());
-			int i = pstm.executeUpdate();
-			if (i == 1) {
-				return true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
+	        String sql = "update categoryfruit set categoryFruitName=? where categoryFruitId=?";
+	        PreparedStatement pstm = conn.prepareStatement(sql);
+	        pstm.setString(1, cateFruit.getCategoryFruitName());
+	        pstm.setInt(2, cateFruit.getCategoryFruitId());
+	        int i = pstm.executeUpdate();
+	        if (i == 1) {
+	            return true;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
 	}
 
 	@Override
-	public boolean deleteCateFruit(String id) {
+	public boolean deleteCateFruit(int id) {
 		try {
-			String sql = "delete from categoryfruit where categoryFruitId=?";
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, id);
-			int i = pstm.executeUpdate();
-			if (i == 1) {
-				return true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	        String sql = "delete from categoryfruit where categoryFruitId=?";
+	        PreparedStatement pstm = conn.prepareStatement(sql);
+	        pstm.setInt(1, id);
+	        int i = pstm.executeUpdate();
+	        if (i == 1) {
+	            return true;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 		return false;
 	}
+	
+	
 
 }

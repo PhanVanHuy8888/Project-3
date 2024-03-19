@@ -1,29 +1,29 @@
 package admin.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
+import java.util.List;
 
 import conn.ConnectionUtils;
 import dao.CateFruitDaoImpl;
-import dao.CategoryDaoImpl;
+import entity.CategoryFruit;
 
 /**
- * Servlet implementation class DeleteCateFruit
+ * Servlet implementation class ListCaFruit
  */
-@WebServlet("/deleteCateFruit")
-public class DeleteCateFruit extends HttpServlet {
+ @WebServlet("/admin/fruitsAdd")
+public class ListCaFruit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteCateFruit() {
+    public ListCaFruit() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,22 @@ public class DeleteCateFruit extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 // Gọi phương thức để truy vấn danh sách loại trái cây từ CSDL
 		try {
-			int id = Integer.parseInt(request.getParameter("id"));
-			
 			CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-			boolean f = dao.deleteCateFruit(id);
-			HttpSession session = request.getSession();
-			
-			if (f) {
-				response.sendRedirect("admin/listCateFruit.jsp");
-			} else {
-				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("admin/listCateFruit.jsp");
-			}
-
-		} catch (Exception e) {
+	        List<CategoryFruit> fruitCategories = dao.getAllCateFruit() ;// FruitDAO là lớp truy vấn CSDL
+	        request.setAttribute("fruitCategories", fruitCategories);
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/listFruits.jsp");
+	        dispatcher.forward(request, response);
+	  
+		}  catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
+      // Đặt danh sách loại trái cây vào request attribute
+       
+        
+        // Chuyển yêu cầu tới JSP
+      }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -40,42 +40,46 @@
 	<div class="col-12 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Thêm mới Fruit</h4>			
-				<form class="forms-sample">
+				<h4 class="card-title">Thêm mới Fruit</h4>
+				<form action="fruitsAdd" method="post" class="forms-sample">
 					<div class="form-group">
 						<label for="exampleInputName1">Tên</label> <input type="text"
-							class="form-control" name="fruitName" id="exampleInputName1" placeholder="Name">
+							class="form-control" name="fruitName" id="exampleInputName1"
+							placeholder="Name">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail3">Xuất xứ</label> <input
-							type="text" name="origin" class="form-control" id="exampleInputEmail3"
-							placeholder="Email">
+						<label for="exampleInputEmail3">Xuất xứ</label> <input type="text"
+							name="origin" class="form-control" id="exampleInputEmail3"
+							placeholder="Xuất xứ">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword4">Giá</label> <input
-							type="number" name="price" class="form-control" id="exampleInputPassword4"
-							placeholder="Password">
+							type="number" name="price" class="form-control"
+							id="exampleInputPassword4" placeholder="Giá">
 					</div>
 					<div class="form-group">
 						<label for="inputState">Loại trái cây</label> <select
 							id="inputState" name="categoryFruitId" class="form-control">
-							<option>--Chọn--</option>
-							<option>Female</option>
+							<option value="">--Chọn--</option>
+							<c:forEach items="${fruitCategories}" var="category">
+								<option value="${category.id}">${category.name}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">
 						<label>File upload</label> <input type="file" name="img[]"
 							class="file-upload-default">
 						<div class="input-group col-xs-12">
-							<input type="text" name="photo" class="form-control file-upload-info" disabled
+							<input type="text" name="photo"
+								class="form-control file-upload-info" disabled
 								placeholder="Upload Image"> <span
 								class="input-group-append">
 								<button class="file-upload-browse btn btn-primary" type="button">Upload</button>
 							</span>
 						</div>
-					</div>	
-					<a type="submit" class="btn btn-primary mr-2">Lưu</a>
-					<a href="listProduct.jsp" class="btn btn-dark">Quay lại</a>
+					</div>
+					<a type="submit" class="btn btn-primary mr-2">Lưu</a> <a
+						href="listFruits.jsp" class="btn btn-dark">Quay lại</a>
 				</form>
 			</div>
 		</div>
