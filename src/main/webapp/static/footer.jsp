@@ -11,7 +11,7 @@
 					<i class="fa fa-map-marker-alt me-3"></i>Đan Phượng, Hà Nội
 				</p>
 				<p class="mb-2">
-					<i class="fa fa-phone-alt me-3"></i>0389283442
+					<i class="fa fa-phone-alt me-3"></i>0389 283 442
 				</p>
 				<p class="mb-2">
 					<i class="fa fa-envelope me-3"></i>hphan0859@gmail.com
@@ -39,27 +39,27 @@
 				<div class="row g-2 pt-2">
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/classes-1.jpg" alt="">
+							src="../img/8.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/classes-2.jpg" alt="">
+							src="../img/9.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/classes-3.jpg" alt="">
+							src="../img/10.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/classes-4.jpg" alt="">
+							src="../img/11.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/classes-5.jpg" alt="">
+							src="../img/12.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/classes-6.jpg" alt="">
+							src="../img/13.jpg" alt="">
 					</div>
 				</div>
 			</div>
