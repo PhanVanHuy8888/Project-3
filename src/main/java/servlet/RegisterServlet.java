@@ -1,5 +1,6 @@
 package servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,7 +17,7 @@ import entity.User;
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/views/register")
+@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,6 +28,10 @@ public class RegisterServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,10 +57,10 @@ public class RegisterServlet extends HttpServlet {
 			boolean f = dao.userRegis(us);
 			if(f) {
 			    session.setAttribute("msg", "Đăng ký thành công !!");
-			    response.sendRedirect("register.jsp");
+			    response.sendRedirect("register");
 			} else {
 			    session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-			    response.sendRedirect("register.jsp");
+			    response.sendRedirect("register");
 			}
 
 		}catch (Exception e) {

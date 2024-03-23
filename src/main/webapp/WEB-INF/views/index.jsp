@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Fruit</title>
-<link href="../img/favicon.ico" rel="icon">
+<link href="img/favicon.ico" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -17,10 +17,10 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
 	rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container-xxl bg-white p-0">
@@ -31,7 +31,7 @@
 		<div class="container-fluid p-0 mb-5">
 			<div class="owl-carousel header-carousel position-relative">
 				<div class="owl-carousel-item position-relative">
-					<img class="img-fluid" src="../img/1.jpg" alt="">
+					<img class="img-fluid" src="img/1.jpg" alt="">
 					<div
 						class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
 						style="background: rgba(0, 0, 0, .2);">
@@ -74,7 +74,7 @@
 							style="min-height: 400px;">
 							<div class="position-relative h-100">
 								<img class="position-absolute w-100 h-100 rounded"
-									src="../img/5.jpg" style="object-fit: cover;">
+									src="img/5.jpg" style="object-fit: cover;">
 							</div>
 						</div>
 						<div class="col-lg-6 order-lg-1 wow fadeIn" data-wow-delay="0.5s">
@@ -107,7 +107,7 @@
 							style="min-height: 400px;">
 							<div class="position-relative h-100">
 								<img class="position-absolute w-100 h-100 rounded"
-									src="../img/4.jpg" style="object-fit: cover;">
+									src="img/4.jpg" style="object-fit: cover;">
 							</div>
 						</div>
 						<div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -133,7 +133,7 @@
 							style="min-height: 400px;">
 							<div class="position-relative h-100">
 								<img class="position-absolute w-100 h-100 rounded"
-									src="../img/3.jpg" style="object-fit: cover;">
+									src="img/3.jpg" style="object-fit: cover;">
 							</div>
 						</div>
 						<div class="col-lg-6 order-lg-1 wow fadeIn" data-wow-delay="0.5s">
@@ -169,7 +169,7 @@
 						<div class="classes-item">
 							<div class="bg-light rounded w-75 mx-auto p-3"
 								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="../img/14.jpg"
+								<img class="img-fluid rounded" src="img/14.jpg"
 									alt="Your Image" style="width: 100%; height: auto;">
 							</div>
 							<div class="bg-light rounded p-4 pt-5 mt-n5"
@@ -196,7 +196,7 @@
 						<div class="classes-item">
 							<div class="bg-light rounded w-75 mx-auto p-3"
 								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="../img/14.jpg"
+								<img class="img-fluid rounded" src="img/14.jpg"
 									alt="Your Image" style="width: 100%; height: auto;">
 							</div>
 							<div class="bg-light rounded p-4 pt-5 mt-n5"
@@ -223,7 +223,7 @@
 						<div class="classes-item">
 							<div class="bg-light rounded w-75 mx-auto p-3"
 								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="../img/14.jpg"
+								<img class="img-fluid rounded" src="img/14.jpg"
 									alt="Your Image" style="width: 100%; height: auto;">
 							</div>
 							<div class="bg-light rounded p-4 pt-5 mt-n5"
@@ -250,7 +250,7 @@
 						<div class="classes-item">
 							<div class="bg-light rounded w-75 mx-auto p-3"
 								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="../img/14.jpg"
+								<img class="img-fluid rounded" src="img/14.jpg"
 									alt="Your Image" style="width: 100%; height: auto;">
 							</div>
 							<div class="bg-light rounded p-4 pt-5 mt-n5"
@@ -277,7 +277,7 @@
 						<div class="classes-item">
 							<div class="bg-light rounded w-75 mx-auto p-3"
 								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="../img/14.jpg"
+								<img class="img-fluid rounded" src="img/14.jpg"
 									alt="Your Image" style="width: 100%; height: auto;">
 							</div>
 							<div class="bg-light rounded p-4 pt-5 mt-n5"
@@ -304,7 +304,7 @@
 						<div class="classes-item">
 							<div class="bg-light rounded w-75 mx-auto p-3"
 								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="../img/14.jpg"
+								<img class="img-fluid rounded" src="img/14.jpg"
 									alt="Your Image" style="width: 100%; height: auto;">
 							</div>
 							<div class="bg-light rounded p-4 pt-5 mt-n5"

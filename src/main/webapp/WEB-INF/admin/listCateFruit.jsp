@@ -17,36 +17,27 @@
 							<h4 class="card-title">Loại sản phẩm</h4>
 							<a href="cateFruitAdd.jsp"
 								class="btn badge badge-outline-primary">Thêm mới</a>
+								<p>${errorString}</p>
 							<div class="table-responsive">
 								<table class="table">
 									<thead>
 										<tr>
-											<th>#</th>
-											<th>Mã</th>
+											<th>#</th>										
 											<th>Tên</th>
 											<th>Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
-										<%
-										int count = 1;
-										CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-										List<CategoryFruit> list = dao.getAllCateFruit();
-										for (CategoryFruit cateFruit : list) {
-										%>
-										<tr>
-											<td><%=count++%></td>
-											<td><%=cateFruit.getCategoryFruitId() %></td>
-											<td><%=cateFruit.getCategoryFruitName() %></td>
-											
-											<td><a href="cateFruitEdit.jsp?id=<%=cateFruit.getCategoryFruitId()%>"
-												class="badge badge-outline-success">Sửa</a> <a
-												href="../deleteCateFruit?id=<%=cateFruit.getCategoryFruitId()%>"
-												class="badge badge-outline-danger">Xoá</a></td>
-										</tr>
-										<%
-										}
-										%>
+										<c:forEach items="${fruitCategories}" var="cateFruit" varStatus="loop">
+											<tr>
+												<td>${loop.index + 1}</td>
+												<td>${cateFruit.categoryFruitName}</td>
+												<td><a href="editCate.jsp?id=${cate.categoryFruitId}"
+													class="badge badge-outline-success">Sửa</a> <a
+													href="../delete?id=${cate.categoryFruitId}"
+													class="badge badge-outline-danger">Xoá</a></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

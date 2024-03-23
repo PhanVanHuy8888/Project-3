@@ -3,7 +3,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 	<div
 		class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-		<a class="sidebar-brand brand-logo" href="#">
+		<a class="sidebar-brand brand-logo" href="cateList">
 			<h1 class="m-0 text-primary">
 				<i class="fas fa-seedling"></i>Fruit
 			</h1>
@@ -15,7 +15,7 @@
 			<div class="profile-desc">
 				<div class="profile-pic">
 					<div class="count-indicator">
-						<img class="img-xs rounded-circle" src="../img/2.jpg" alt="">
+						<img class="img-xs rounded-circle" src="img/2.jpg" alt="">
 					</div>
 					<div class="profile-name">
 						<c:if test="${not empty user }">
@@ -28,7 +28,7 @@
 		</li>
 
 		<li class="nav-item menu-items"><a class="nav-link"
-			href="listCate.jsp"> <span class="menu-icon"> <i
+			href="cateList"> <span class="menu-icon"> <i
 					class="mdi mdi-speedometer"></i>
 			</span> <span class="menu-title">Danh mục</span>
 		</a></li>
@@ -38,7 +38,7 @@
 			</span> <span class="menu-title">Sản phẩm</span>
 		</a></li>
 		<li class="nav-item menu-items">
-            <a class="nav-link" href="listCateFruit.jsp">
+            <a class="nav-link" href="cateFruitList">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>

@@ -99,14 +99,7 @@
 													placeholder="Your Email"> <label for="email">Your
 													Email</label>
 											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-floating">
-												<input type="text" class="form-control border-0"
-													id="subject" placeholder="Subject"> <label
-													for="subject">Subject</label>
-											</div>
-										</div>
+										</div>										
 										<div class="col-12">
 											<div class="form-floating">
 												<textarea class="form-control border-0"

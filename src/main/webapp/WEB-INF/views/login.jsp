@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Đăng nhập</title>
-<link href="../img/favicon.ico" rel="icon">
+<link href="img/favicon.ico" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +24,10 @@
 	rel="stylesheet">
 
 <!-- Customized Bootstrap Stylesheet -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Template Stylesheet -->
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container-xxl py-5">
@@ -60,8 +60,8 @@
 										<button class="btn btn-primary w-100 py-3" type="submit">Đăng nhập</button>
 									</div>
 									<div class="text-center">
-										<a href="register.jsp">Đăng ký |</a>
-										<a href="index.jsp">Back home</a>
+										<a href="register">Đăng ký |</a>
+										<a href="index">Back home</a>
 									</div>
 								</div>
 							</form>
@@ -71,7 +71,7 @@
 						style="min-height: 400px;">
 						<div class="position-relative h-100">
 							<img class="position-absolute w-100 h-100 rounded"
-								src="../img/7.jpg" style="object-fit: cover;">
+								src="img/7.jpg" style="object-fit: cover;">
 						</div>
 					</div>
 				</div>

@@ -15,13 +15,13 @@ import jakarta.servlet.http.*;
  * Servlet implementation class FruitsAdd
  */
 @WebServlet("/admin/FruitsAdd")
-public class FruitsAdd extends HttpServlet {
+public class CreateFruitsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public FruitsAdd() {
+	public CreateFruitsServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

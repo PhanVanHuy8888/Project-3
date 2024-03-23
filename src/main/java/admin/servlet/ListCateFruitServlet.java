@@ -1,56 +1,49 @@
 package admin.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
+import java.util.List;
 
 import conn.ConnectionUtils;
-import dao.CategoryDaoImpl;
+import dao.CateFruitDaoImpl;
 import entity.Category;
+import entity.CategoryFruit;
 
 /**
- * Servlet implementation class CateDelete
+ * Servlet implementation class ListCaFruit
  */
-@WebServlet("/delete")
-public class CateDelete extends HttpServlet {
+ @WebServlet("/cateFruitList")
+public class ListCateFruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CateDelete() {
+    public ListCateFruitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String errorString = null;
+		
 		try {
-			int id = Integer.parseInt(request.getParameter("id"));
-			
-			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
-			boolean f = dao.deleteCate(id);
-			HttpSession session = request.getSession();
-			
-			if (f) {
-				response.sendRedirect("admin/listCate.jsp");
-			} else {
-				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("admin/listCate.jsp");
-			}
-
-		} catch (Exception e) {
+			CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+	        List<CategoryFruit> fruitCategories = dao.getAllCateFruit() ;
+	        request.setAttribute("errorString", errorString);
+	        request.setAttribute("fruitCategories", fruitCategories);
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/listCateFruit.jsp");
+	        dispatcher.forward(request, response);
+	  
+		}  catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
+      }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

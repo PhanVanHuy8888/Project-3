@@ -39,27 +39,27 @@
 				<div class="row g-2 pt-2">
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/8.jpg" alt="">
+							src="img/8.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/9.jpg" alt="">
+							src="img/9.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/10.jpg" alt="">
+							src="img/10.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/11.jpg" alt="">
+							src="img/11.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/12.jpg" alt="">
+							src="img/12.jpg" alt="">
 					</div>
 					<div class="col-4">
 						<img class="img-fluid rounded bg-light p-1"
-							src="../img/13.jpg" alt="">
+							src="img/13.jpg" alt="">
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,6 @@
 package admin.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,17 +18,25 @@ import entity.Category;
 /**
  * Servlet implementation class CategoryServlet
  */
-@WebServlet("/admin/cateAdd")
-public class CategoryServlet extends HttpServlet {
+@WebServlet("/cateCreate")
+public class CreateCateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CategoryServlet() {
+	public CreateCateServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getServletContext()
+				.getRequestDispatcher("/WEB-INF/admin/createCate.jsp");
+		dispatcher.forward(request, response);
+	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -39,10 +48,10 @@ public class CategoryServlet extends HttpServlet {
 
 			boolean f = dao.addCate(cate);
 			if (f) {
-				response.sendRedirect("listCate.jsp");
+				response.sendRedirect("cateList");
 			} else {
 				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("cateAdd.jsp");
+				response.sendRedirect("admin/createCate");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

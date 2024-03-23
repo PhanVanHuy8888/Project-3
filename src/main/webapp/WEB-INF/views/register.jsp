@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Đăng ký</title>
-<link href="../img/favicon.ico" rel="icon">
+<link href="img/favicon.ico" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,10 +25,10 @@
 	rel="stylesheet">
 
 <!-- Customized Bootstrap Stylesheet -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Template Stylesheet -->
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container-xxl py-5">
@@ -88,7 +88,7 @@
 											ký</button>
 									</div>
 									<div class="text-center">
-										<a href="login.jsp">Đăng nhập |</a> <a href="index.jsp">Back
+										<a href="login">Đăng nhập |</a> <a href="index">Back
 											home</a>
 									</div>
 								</div>
@@ -99,7 +99,7 @@
 						style="min-height: 400px;">
 						<div class="position-relative h-100">
 							<img class="position-absolute w-100 h-100 rounded"
-								src="../img/6.jpg" style="object-fit: cover;">
+								src="img/6.jpg" style="object-fit: cover;">
 						</div>
 					</div>
 				</div>

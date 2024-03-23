@@ -17,7 +17,7 @@ import entity.CategoryFruit;
  * Servlet implementation class CateFruitAdd
  */
 @WebServlet("/admin/cateFruitAdd")
-public class CateFruitAdd extends HttpServlet {
+public class CreateCateFruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

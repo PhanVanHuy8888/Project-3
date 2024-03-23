@@ -19,13 +19,13 @@ import entity.CategoryFruit;
  * Servlet implementation class EditCateFruit
  */
 @WebServlet("/cateFruitEdit")
-public class EditCateFruit extends HttpServlet {
+public class EditCateFruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditCateFruit() {
+    public EditCateFruitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -6,17 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet"
-	href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
-<link rel="stylesheet"
-	href="../assets/vendors/owl-carousel-2/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="../assets/vendors/owl-carousel-2/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="../assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet"
-	href="../assets/vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 	rel="stylesheet">
@@ -25,7 +20,6 @@
 	rel="stylesheet">
 </head>
 <body>
-
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<%@include file="nav.jsp" %>
@@ -35,8 +29,8 @@
 			<nav class="navbar p-0 fixed-top d-flex flex-row">
 				<div
 					class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-					<a class="navbar-brand brand-	-mini" href="index.html"><img
-						src="../img/1.jpg" alt="logo" /></a>
+					<a class="navbar-brand brand-	-mini" href="#"><img
+						src="img/1.jpg" alt="logo" /></a>
 				</div>
 				<div
 					class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -45,7 +39,7 @@
 						<li class="nav-item w-100">
 							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
 								<input type="text" class="form-control"
-									placeholder="Search products">
+									placeholder="Tìm kiếm">
 							</form>
 						</li>
 					</ul>
