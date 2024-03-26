@@ -1,5 +1,6 @@
 package admin.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,9 +17,17 @@ import entity.CategoryFruit;
 /**
  * Servlet implementation class CateFruitAdd
  */
-@WebServlet("/admin/cateFruitAdd")
+@WebServlet("/cateFruitCreate")
 public class CreateCateFruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getServletContext()
+				.getRequestDispatcher("/WEB-INF/admin/createCateFruit.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -30,10 +39,10 @@ public class CreateCateFruitServlet extends HttpServlet {
 
 			boolean f = dao.addCateFruit(cateFruit);
 			if (f) {
-				response.sendRedirect("listCateFruit.jsp");
+				response.sendRedirect("cateFruitList");
 			} else {
 				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("cateFruitAdd.jsp");
+				response.sendRedirect("cateFruitCreate");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

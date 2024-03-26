@@ -33,7 +33,7 @@
 			</span> <span class="menu-title">Danh mục</span>
 		</a></li>
 		<li class="nav-item menu-items"><a class="nav-link"
-			href="listFruits.jsp"> <span class="menu-icon"> <i
+			href="fruitList"> <span class="menu-icon"> <i
 					class="mdi mdi-speedometer"></i>
 			</span> <span class="menu-title">Sản phẩm</span>
 		</a></li>

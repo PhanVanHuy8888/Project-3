@@ -6,43 +6,32 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 import conn.ConnectionUtils;
 import dao.CategoryDaoImpl;
-import entity.Category;
+import dao.FruitDaoImpl;
+import entity.Fruit;
 
 /**
- * Servlet implementation class ListCate
+ * Servlet implementation class ListFruits
  */
-@WebServlet("/cateList")
-public class ListCateServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListCateServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+@WebServlet("/fruitList")
+public class ListFruits extends HttpServlet {
+	
+  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorString = null;
-		List<Category> list = null;
+		List<Fruit> list = null;
 		try {
-			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
+			FruitDaoImpl dao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 			try {
-				list = dao.getAllCate();
-				request.setAttribute("cateList", list);
+				list = dao.getAllFruit();
+				request.setAttribute("fruitList", list);
 				RequestDispatcher dispatcher = request.getServletContext()
-						.getRequestDispatcher("/WEB-INF/admin/listCate.jsp");
+						.getRequestDispatcher("/WEB-INF/admin/listFruits.jsp");
 				dispatcher.forward(request, response);
 			} catch (Exception e) {			
 				e.printStackTrace();
@@ -52,20 +41,12 @@ public class ListCateServlet extends HttpServlet {
 			errorString = e1.getMessage();
 			
 			RequestDispatcher dispatcher = request.getServletContext()
-					.getRequestDispatcher("/WEB-INF/admin/listCate.jsp");
+					.getRequestDispatcher("/WEB-INF/admin/listFruits.jsp");
 			request.setAttribute("errorString", errorString);
 			dispatcher.forward(request, response);
 			e1.printStackTrace();
 		}
-	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

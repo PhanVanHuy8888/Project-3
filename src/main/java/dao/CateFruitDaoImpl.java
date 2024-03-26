@@ -22,7 +22,7 @@ public class CateFruitDaoImpl implements CateFruitDao {
 	@Override
 	public boolean addCateFruit(CategoryFruit cateFruit) {
 		try {
-			String sql = "insert into categoryfruit(categoryName) value(?)";
+			String sql = "insert into categoryfruit(categoryFruitName) value(?)";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, cateFruit.getCategoryFruitName());
 			int i = pstm.executeUpdate();
@@ -112,6 +112,18 @@ public class CateFruitDaoImpl implements CateFruitDao {
 		return false;
 	}
 	
-	
+	public int findCategoryFruitIdByCategoryFruitName(String categoryFruitName) throws SQLException {
+        int categoryFruitId = -1; // Default value if category is not found
+        String query = "SELECT categoryFruitId FROM categoryfruit WHERE categoryFruitName = ?";
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setString(1, categoryFruitName);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    categoryFruitId = resultSet.getInt("categoryFruitId");
+                }
+            }
+        }
+        return categoryFruitId;
+    }
 
 }

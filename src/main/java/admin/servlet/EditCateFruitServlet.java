@@ -1,5 +1,6 @@
 package admin.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,16 +13,15 @@ import java.io.IOException;
 import conn.ConnectionUtils;
 import dao.CateFruitDaoImpl;
 import dao.CategoryDaoImpl;
-import entity.Category;
 import entity.CategoryFruit;
 
 /**
- * Servlet implementation class EditCateFruit
+ * Servlet implementation class EditCateFruitServlet
  */
 @WebServlet("/cateFruitEdit")
 public class EditCateFruitServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,39 +30,41 @@ public class EditCateFruitServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int categoryFruitId = Integer.parseInt(request.getParameter("id"));
+            CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+            CategoryFruit cateFruit = dao.getCateFruitById(categoryFruitId);
+            request.setAttribute("cateFruit", cateFruit);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/editCateFruit.jsp");
+            dispatcher.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			int id = Integer.parseInt(request.getParameter("id"));		    
-		    String categoryFruitName = request.getParameter("cateFruitName");
-		    CategoryFruit cateFruit = new CategoryFruit();
-		    
-		    cateFruit.setCategoryFruitId(id);
-		    cateFruit.setCategoryFruitName(categoryFruitName);
-		    CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-		    boolean f = dao.updateCateFruit(cateFruit);
-		    HttpSession session = request.getSession();
-		    if (f) {
-		        response.sendRedirect("admin/listCateFruit.jsp");
-		    } else {
-		        session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-		        response.sendRedirect("admin/cateFruitEdit.jsp");
-		    }
-		} catch (Exception e) {
-		    e.printStackTrace();
-		}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String categoryFruitName = request.getParameter("cateFruitName");
+            CategoryFruit cateFruit = new CategoryFruit();
 
-		
-	}
+            cateFruit.setCategoryFruitId(id);
+            cateFruit.setCategoryFruitName(categoryFruitName);
+            CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+            boolean f = dao.updateCateFruit(cateFruit);
+            HttpSession session = request.getSession();
+            if (f) {
+                response.sendRedirect("cateFruitList");
+            } else {
+                session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
+                response.sendRedirect("cateFruitEdit?id=" + id);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

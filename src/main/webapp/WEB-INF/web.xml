@@ -169,4 +169,14 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/IndexServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListFruits</display-name>
+    <servlet-name>ListFruits</servlet-name>
+    <servlet-class>admin.servlet.ListFruits</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListFruits</servlet-name>
+    <url-pattern>/ListFruits</url-pattern>
+  </servlet-mapping>
 </web-app>

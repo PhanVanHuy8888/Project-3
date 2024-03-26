@@ -10,69 +10,36 @@
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title">Sản phẩm</h4>
-							<a href="fruitsAdd.jsp" class="btn badge badge-outline-primary">Thêm
+							<a href="fruitCreate" class="btn badge badge-outline-primary">Thêm
 								mới</a>
 							<div class="table-responsive">
 								<table class="table">
 									<thead>
 										<tr>
-											<th>
-												<div class="form-check form-check-muted m-0">
-													<label class="form-check-label"> <input
-														type="checkbox" class="form-check-input">
-													</label>
-												</div>
-											</th>
+											<th>#</th>
 											<th>Tên</th>
 											<th>Ảnh</th>
-											<th>Loại</th>
 											<th>Xuất xứ</th>
 											<th>Giá</th>
-											<th>Start Date</th>
 											<th>Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>
-												<div class="form-check form-check-muted m-0">
-													<label class="form-check-label"> <input
-														type="checkbox" class="form-check-input">
-													</label>
-												</div>
-											</td>
-											<td><img src="assets/images/faces/face3.jpg" alt="image" />
-												<span class="pl-2">Peter Gill</span></td>
-											<td>02312</td>
-											<td>$14,500</td>
-											<td>Development</td>
-											<td>Online Payment</td>
-											<td>04 Dec 2019</td>
-											<td>
-												<div class="badge badge-outline-success">Sửa</div>
-												<div class="badge badge-outline-danger">Xoá</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="form-check form-check-muted m-0">
-													<label class="form-check-label"> <input
-														type="checkbox" class="form-check-input">
-													</label>
-												</div>
-											</td>
-											<td><img src="assets/images/faces/face4.jpg" alt="image" />
-												<span class="pl-2">Sallie Reyes</span></td>
-											<td>02312</td>
-											<td>$14,500</td>
-											<td>Website</td>
-											<td>Credit card</td>
-											<td>04 Dec 2019</td>
-											<td>
-												<div class="badge badge-outline-success">Sửa</div>
-												<div class="badge badge-outline-danger">Xoá</div>
-											</td>
-										</tr>
+										<c:forEach items="${fruitList}" var="fruit" varStatus="loop">
+											<tr>
+												<td>${loop.index + 1}</td>
+												<td>${fruit.fruitName}</td>
+												<td><img src="img/${fruit.photo}" alt="ảnh" width="200"
+													height="200"></td>
+
+												<td>${fruit.origin}</td>
+												<td>${fruit.price}</td>
+												<td><a href="editCate?id=${fruit.fruitId}"
+													class="badge badge-outline-success">Sửa</a> <a
+													href="delete?id=${fruit.fruitId}"
+													class="badge badge-outline-danger">Xoá</a></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +19,16 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet"
-	href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
+	href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/owl-carousel-2/owl.carousel.min.css">
+	href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+	href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet"
-	href="../assets/vendors/css/vendor.bundle.base.css">
+	href="assets/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 	rel="stylesheet">
@@ -40,8 +41,13 @@
 	<div class="col-12 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Thêm mới Fruit</h4>
-				<form action="fruitsAdd" method="post" class="forms-sample">
+				<h4 class="card-title">Thêm mới trái cây</h4>
+				<c:if test="${not empty fail}">
+                    <p class="text-center text-success">${fail}</p>
+                    <c:remove var="fail" scope="session"/>
+                </c:if>
+				<form action="fruitCreate" method="post"
+					enctype="multipart/form-data" class="forms-sample">
 					<div class="form-group">
 						<label for="exampleInputName1">Tên</label> <input type="text"
 							class="form-control" name="fruitName" id="exampleInputName1"
@@ -59,27 +65,29 @@
 					</div>
 					<div class="form-group">
 						<label for="inputState">Loại trái cây</label> <select
-							id="inputState" name="categoryFruitId" class="form-control">
-							<option value="">--Chọn--</option>
-							<c:forEach items="${fruitCategories}" var="category">
-								<option value="${category.id}">${category.name}</option>
+							id="inputState" name="categoryFruitName"  class="form-control">
+							<option >--Chọn--</option>
+							<!-- Sử dụng forEach để lặp qua danh sách loại trái cây và hiển thị chúng -->
+							<c:forEach items="${fruitCategories}" var="cateFruit">
+								<option >${cateFruit.categoryFruitName}</option>
 							</c:forEach>
 						</select>
+
 					</div>
 					<div class="form-group">
-						<label>File upload</label> <input type="file" name="img[]"
-							class="file-upload-default">
-						<div class="input-group col-xs-12">
-							<input type="text" name="photo"
-								class="form-control file-upload-info" disabled
-								placeholder="Upload Image"> <span
-								class="input-group-append">
-								<button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-							</span>
+						<label for="exampleInputPassword4">Mô tả</label> <input
+							type="text" name="description" class="form-control"
+							id="exampleInputPassword4" placeholder="Mô tả">
+					</div>
+					<div class="form-group">
+						<div class="form-group">
+							<label for="exampleFormControlFile1">Upload Photo</label> <input
+								name="photo" type="file" class="form-control-file"
+								id="exampleFormControlFile1">
 						</div>
 					</div>
-					<a type="submit" class="btn btn-primary mr-2">Lưu</a> <a
-						href="listFruits.jsp" class="btn btn-dark">Quay lại</a>
+					<button type="submit" class="btn btn-primary mr-2">Lưu</button>
+					<a href="fruitList" class="btn btn-dark">Quay lại</a>
 				</form>
 			</div>
 		</div>

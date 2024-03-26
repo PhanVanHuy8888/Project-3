@@ -18,46 +18,26 @@ import dao.CategoryDaoImpl;
  */
 @WebServlet("/deleteCateFruit")
 public class DeleteCateFruit extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteCateFruit() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
-			
+
 			CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 			boolean f = dao.deleteCateFruit(id);
 			HttpSession session = request.getSession();
-			
+
 			if (f) {
-				response.sendRedirect("admin/listCateFruit.jsp");
+				response.sendRedirect("cateFruitList");
 			} else {
 				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("admin/listCateFruit.jsp");
+				response.sendRedirect("cateFruitList");
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
-
 }

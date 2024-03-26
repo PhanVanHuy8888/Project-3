@@ -15,7 +15,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title">Loại sản phẩm</h4>
-							<a href="cateFruitAdd.jsp"
+							<a href="cateFruitCreate"
 								class="btn badge badge-outline-primary">Thêm mới</a>
 								<p>${errorString}</p>
 							<div class="table-responsive">
@@ -32,9 +32,9 @@
 											<tr>
 												<td>${loop.index + 1}</td>
 												<td>${cateFruit.categoryFruitName}</td>
-												<td><a href="editCate.jsp?id=${cate.categoryFruitId}"
+												<td><a href="cateFruitEdit?id=${cateFruit.categoryFruitId}"
 													class="badge badge-outline-success">Sửa</a> <a
-													href="../delete?id=${cate.categoryFruitId}"
+													href="deleteCateFruit?id=${cateFruit.categoryFruitId}"
 													class="badge badge-outline-danger">Xoá</a></td>
 											</tr>
 										</c:forEach>

@@ -16,6 +16,7 @@ import entity.Category;
 
 @WebServlet("/editCate")
 public class EditCateServlet extends HttpServlet {
+	
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {

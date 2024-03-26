@@ -23,17 +23,17 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet"
-	href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
+	href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/owl-carousel-2/owl.carousel.min.css">
+	href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+	href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+	href="assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet"
-	href="../assets/vendors/css/vendor.bundle.base.css">
+	href="assets/vendors/css/vendor.bundle.base.css">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 	rel="stylesheet">
@@ -51,36 +51,16 @@
 					<p class="text-center text-success">${fail }</p>
 					<c:remove var="msg" scope="session" />
 				</c:if>
-
-				<%
-				int id = Integer.parseInt(request.getParameter("id"));
-				CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-				CategoryFruit cateFruit = dao.getCateFruitById(id);
-				%>
-				<%
-				if (cateFruit != null) {
-				%>
-				<form action="../cateFruitEdit" method="post" class="forms-sample">
-					<input type="hidden" name="id"
-						value="<%=cateFruit.getCategoryFruitId()%>">
-					<div class="form-group">
-						<label for="exampleInputName1">Tên</label> <input type="text"
-							class="form-control" name="cateFruitName" id="exampleInputName1"
-							placeholder="Name" value="<%=cateFruit.getCategoryFruitName()%>">
-					</div>
-					<button type="submit" class="btn btn-primary mr-2">Lưu</button>
-					<!-- Đổi từ <a> thành <button type="submit"> -->
-					<a href="listCateFruit.jsp" class="btn btn-dark">Quay lại</a>
-				</form>
-				<%
-				} else {
-				%>
-				<p>Không tìm thấy Loại sản phẩm</p>
-				<%
-				}
-				%>
-
-
+				
+				<form action="${pageContext.request.contextPath}/cateFruitEdit" method="POST" class="forms-sample">
+                    <input type="hidden" name="id" value="${cateFruit.categoryFruitId}">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Tên</label>
+                        <input type="text" class="form-control" name="cateFruitName" placeholder="Name" value="${cateFruit.categoryFruitName}">
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Lưu</button>
+                    <a href="cateFruitList" class="btn btn-dark">Quay lại</a>
+                </form>
 			</div>
 		</div>
 	</div>
