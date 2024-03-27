@@ -62,6 +62,71 @@ public class FruitDaoImpl implements FruitDao{
 
 	    return lst;
 	}
+
+	@Override
+	public Fruit getFruitById(int id) {
+		Fruit fruit = null;
+		try {
+			String sql = "Select * from fruit where fruitId=?";
+			PreparedStatement p = conn.prepareStatement(sql);
+			p.setInt(1, id);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				fruit = new Fruit();
+				fruit.setFruitId(rs.getInt(1));
+				fruit.setFruitName(rs.getString(2));
+				fruit.setOrigin(rs.getString(3));
+				fruit.setPrice(rs.getFloat(4));
+				fruit.setPhoto(rs.getString(5));
+				fruit.setCategoryFruitId(rs.getInt(6));
+				fruit.setDescription(rs.getString(7));
+			}
+		} catch(Exception e ) {
+			e.printStackTrace();
+		}
+		
+		return fruit;
+	}
+
+	@Override
+	public boolean updateFruit(Fruit fruit) {
+	    try {
+	        String sql = "update fruit set fruitName=?, origin=?, price=?, photo=?, categoryFruitId=?, description=? where fruitId=?";
+	        PreparedStatement p = conn.prepareStatement(sql);
+	        p.setString(1, fruit.getFruitName());
+	        p.setString(2, fruit.getOrigin());
+	        p.setFloat(3, fruit.getPrice());
+	        p.setString(4, fruit.getPhoto());
+	        p.setInt(5, fruit.getCategoryFruitId());
+	        p.setString(6, fruit.getDescription());
+	        p.setInt(7, fruit.getFruitId());
+	        int i = p.executeUpdate();
+	        if (i == 1) {
+	            return true;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return false;
+	}
+
+
+	@Override
+	public boolean deleteFruit(int id) {
+		try {
+			String sql = "delete from fruit where fruitId=?";
+			PreparedStatement p = conn.prepareStatement(sql);
+			p.setInt(1, id);
+			int i = p.executeUpdate();
+			if(i == 1) {
+				return true;
+			}
+		}catch(Exception e ) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	
 	

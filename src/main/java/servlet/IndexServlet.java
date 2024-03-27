@@ -11,7 +11,9 @@ import java.util.List;
 
 import conn.ConnectionUtils;
 import dao.CategoryDaoImpl;
+import dao.FruitDaoImpl;
 import entity.Category;
+import entity.Fruit;
 
 /**
  * Servlet implementation class IndexServlet
@@ -35,9 +37,11 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    try {
 	        CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
+	        FruitDaoImpl fruitDao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 	        List<Category> list = dao.getAllCate();
+	        List<Fruit> lst = fruitDao.getAllFruit();
 	        request.setAttribute("cateList", list);
-	        
+	        request.setAttribute("fruitList", lst);
 	        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 	        dispatcher.forward(request, response);
 	    } catch (Exception e) {
@@ -46,14 +50,8 @@ public class IndexServlet extends HttpServlet {
 	    }
 	}
 
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

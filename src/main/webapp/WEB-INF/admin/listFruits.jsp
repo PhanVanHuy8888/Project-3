@@ -34,9 +34,9 @@
 
 												<td>${fruit.origin}</td>
 												<td>${fruit.price}</td>
-												<td><a href="editCate?id=${fruit.fruitId}"
+												<td><a href="fruitEdit?id=${fruit.fruitId}"
 													class="badge badge-outline-success">Sửa</a> <a
-													href="delete?id=${fruit.fruitId}"
+													href="deleteFruit?id=${fruit.fruitId}"
 													class="badge badge-outline-danger">Xoá</a></td>
 											</tr>
 										</c:forEach>

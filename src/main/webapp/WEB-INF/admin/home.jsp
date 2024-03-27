@@ -7,10 +7,14 @@
 <meta charset="UTF-8">
 <title>Admin</title>
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
-<link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
-<link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet"
+	href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet"
+	href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
@@ -22,7 +26,7 @@
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
-		<%@include file="nav.jsp" %>
+		<%@include file="nav.jsp"%>
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_navbar.html -->
@@ -38,22 +42,42 @@
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
 							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Tìm kiếm">
+								<input type="text" class="form-control" placeholder="Tìm kiếm">
 							</form>
 						</li>
 					</ul>
-					<ul class="navbar-nav navbar-nav-right">
-						<li class="nav-item">
-							<button
-								class="btn btn-primary px-4 py-2 d-flex align-items-center">
-								<i class="fas fa-sign-out-alt mr-2"></i>
-								<!-- Icon with margin-right -->
-								<span class="d-inline font-weight-bold">Log</span><span
+					<c:if test="${not empty user }">
+
+						<ul class="navbar-nav navbar-nav-right">
+							<li class="nav-item"><a
+								class="btn btn-success py-2 d-flex align-items-center"> <i
+									class="fas fa-user"></i> ${user.name}
+							</a></li>
+							<li class="nav-item"><a href="logout"
+								class="btn btn-primary py-2 d-flex align-items-center"> <i
+									class="fas fa-sign-out-alt mr-2"></i> <span
+									class="d-inline font-weight-bold">Log</span><span
 									class="d-inline font-weight-bold">out</span>
-							</button>
-						</li>
-					</ul>
+							</a></li>
+						</ul>
+
+					</c:if>
+					<!-- <c:if test="${empty user }">
+
+						<ul class="navbar-nav navbar-nav-right">
+							<li class="nav-item"><a href="login"
+								class="btn btn-success py-2 d-flex align-items-center"><i
+									class="fas fa-sign-out-alt mr-2"></i> <span
+									class="d-inline font-weight-bold">Log</span><span
+									class="d-inline font-weight-bold">in</span> </a></li>
+							<li class="nav-item"><a href="register"
+								class="btn btn-primary py-2 d-flex align-items-center"><i
+									class="fas fa-user-plus"></i> <span
+									class="d-inline font-weight-bold">Res</span><span
+									class="d-inline font-weight-bold">gister</span> </a></li>
+						</ul>
+
+					</c:if> -->
 
 					<button
 						class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"

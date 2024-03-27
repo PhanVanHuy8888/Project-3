@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -165,171 +167,39 @@
 					<h1 class="mb-3">Trái cây phổ biến</h1>
 				</div>
 				<div class="row g-4">
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="classes-item">
-							<div class="bg-light rounded w-75 mx-auto p-3"
-								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="img/14.jpg"
-									alt="Your Image" style="width: 100%; height: auto;">
-							</div>
-							<div class="bg-light rounded p-4 pt-5 mt-n5"
-								style="background-color: #cfe2f3;">
-								<a class="d-block text-center h3 mt-3 mb-4" href="">Cam canh</a>
-								<div
-									class="d-flex align-items-center justify-content-center mb-4">
-									<span
-										class="text-black rounded-pill py-2 px-3 font-weight-bold"
-										href="">569.000đ</span>
+					<c:forEach items="${fruitList}" var="fruit">
+						<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+							<div class="classes-item">
+								<div class="bg-light rounded w-75 mx-auto p-3"
+									style="background-color: #cfe2f3;">
+									<img class="img-fluid rounded" src="img/${fruit.photo}"
+										alt="Your Image" style="width: 100%; height: auto;">
 								</div>
-								<div class="row g-1">
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Xem Chi Tiết</button>
+								<div class="bg-light rounded p-4 pt-5 mt-n5"
+									style="background-color: #cfe2f3;">
+									<a class="d-block text-center h3 mt-3 mb-4" href="">${fruit.fruitName}</a>
+									<div
+										class="d-flex align-items-center justify-content-center mb-4">
+										<span
+											class="text-black rounded-pill py-2 px-3 font-weight-bold"
+											href="">${fruit.price}đ</span>
 									</div>
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Thêm Giỏ Hàng</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="classes-item">
-							<div class="bg-light rounded w-75 mx-auto p-3"
-								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="img/14.jpg"
-									alt="Your Image" style="width: 100%; height: auto;">
-							</div>
-							<div class="bg-light rounded p-4 pt-5 mt-n5"
-								style="background-color: #cfe2f3;">
-								<a class="d-block text-center h3 mt-3 mb-4" href="">Cam canh</a>
-								<div
-									class="d-flex align-items-center justify-content-center mb-4">
-									<span
-										class="text-black rounded-pill py-2 px-3 font-weight-bold"
-										href="">569.000đ</span>
-								</div>
-								<div class="row g-1">
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Xem Chi Tiết</button>
-									</div>
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Thêm Giỏ Hàng</button>
+									<div class="row g-1">
+										<div class="col-6 text-center">
+											<button class="btn btn-success">Xem Chi Tiết</button>
+										</div>
+										<div class="col-6 text-center">
+											<button class="btn btn-success">Thêm Giỏ Hàng</button>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="classes-item">
-							<div class="bg-light rounded w-75 mx-auto p-3"
-								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="img/14.jpg"
-									alt="Your Image" style="width: 100%; height: auto;">
-							</div>
-							<div class="bg-light rounded p-4 pt-5 mt-n5"
-								style="background-color: #cfe2f3;">
-								<a class="d-block text-center h3 mt-3 mb-4" href="">Cam canh</a>
-								<div
-									class="d-flex align-items-center justify-content-center mb-4">
-									<span
-										class="text-black rounded-pill py-2 px-3 font-weight-bold"
-										href="">569.000đ</span>
-								</div>
-								<div class="row g-1">
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Xem Chi Tiết</button>
-									</div>
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Thêm Giỏ Hàng</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="classes-item">
-							<div class="bg-light rounded w-75 mx-auto p-3"
-								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="img/14.jpg"
-									alt="Your Image" style="width: 100%; height: auto;">
-							</div>
-							<div class="bg-light rounded p-4 pt-5 mt-n5"
-								style="background-color: #cfe2f3;">
-								<a class="d-block text-center h3 mt-3 mb-4" href="">Cam canh</a>
-								<div
-									class="d-flex align-items-center justify-content-center mb-4">
-									<span
-										class="text-black rounded-pill py-2 px-3 font-weight-bold"
-										href="">569.000đ</span>
-								</div>
-								<div class="row g-1">
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Xem Chi Tiết</button>
-									</div>
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Thêm Giỏ Hàng</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="classes-item">
-							<div class="bg-light rounded w-75 mx-auto p-3"
-								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="img/14.jpg"
-									alt="Your Image" style="width: 100%; height: auto;">
-							</div>
-							<div class="bg-light rounded p-4 pt-5 mt-n5"
-								style="background-color: #cfe2f3;">
-								<a class="d-block text-center h3 mt-3 mb-4" href="">Cam canh</a>
-								<div
-									class="d-flex align-items-center justify-content-center mb-4">
-									<span
-										class="text-black rounded-pill py-2 px-3 font-weight-bold"
-										href="">569.000đ</span>
-								</div>
-								<div class="row g-1">
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Xem Chi Tiết</button>
-									</div>
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Thêm Giỏ Hàng</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="classes-item">
-							<div class="bg-light rounded w-75 mx-auto p-3"
-								style="background-color: #cfe2f3;">
-								<img class="img-fluid rounded" src="img/14.jpg"
-									alt="Your Image" style="width: 100%; height: auto;">
-							</div>
-							<div class="bg-light rounded p-4 pt-5 mt-n5"
-								style="background-color: #cfe2f3;">
-								<a class="d-block text-center h3 mt-3 mb-4" href="">Cam canh</a>
-								<div
-									class="d-flex align-items-center justify-content-center mb-4">
-									<span
-										class="text-black rounded-pill py-2 px-3 font-weight-bold"
-										href="">569.000đ</span>
-								</div>
-								<div class="row g-1">
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Xem Chi Tiết</button>
-									</div>
-									<div class="col-6 text-center">
-										<button class="btn btn-success">Thêm Giỏ Hàng</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
+
 		<!-- Classes End -->
 
 		<!-- Footer Start -->
