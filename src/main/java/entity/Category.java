@@ -37,13 +37,13 @@ public class Category {
 	public String getLink() {
 	    // Trả về liên kết cố định cho mỗi danh mục
 	    if (this.categoryName.equals("Trang chủ")) {
-	        return "../views/index.jsp";
+	        return "index";
 	    } else if (this.categoryName.equals("Sản phẩm")) {
-	        return "products.html";
+	        return "fruit";
 	    } else if (this.categoryName.equals("Bài viết")) {
-	        return "articles.html";
+	        return "blog";
 	    } else if (this.categoryName.equals("Liên hệ")) {
-	        return "../views/contact.jsp";
+	        return "contact";
 	    } else {
 	        return "#"; // hoặc trả về một giá trị khác nếu cần
 	    }

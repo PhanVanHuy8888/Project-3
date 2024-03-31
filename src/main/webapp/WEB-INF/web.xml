@@ -229,4 +229,44 @@
     <servlet-name>DisplayFruit</servlet-name>
     <url-pattern>/DisplayFruit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FruitServlet</display-name>
+    <servlet-name>FruitServlet</servlet-name>
+    <servlet-class>servlet.FruitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FruitServlet</servlet-name>
+    <url-pattern>/FruitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ContactServlet</display-name>
+    <servlet-name>ContactServlet</servlet-name>
+    <servlet-class>servlet.ContactServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContactServlet</servlet-name>
+    <url-pattern>/ContactServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BlogServlet</display-name>
+    <servlet-name>BlogServlet</servlet-name>
+    <servlet-class>servlet.BlogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BlogServlet</servlet-name>
+    <url-pattern>/BlogServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ContactDaoImpl</display-name>
+    <servlet-name>ContactDaoImpl</servlet-name>
+    <servlet-class>dao.ContactDaoImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContactDaoImpl</servlet-name>
+    <url-pattern>/ContactDaoImpl</url-pattern>
+  </servlet-mapping>
 </web-app>
