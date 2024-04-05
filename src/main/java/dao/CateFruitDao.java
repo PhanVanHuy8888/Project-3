@@ -9,4 +9,5 @@ public interface CateFruitDao {
 	public CategoryFruit getCateFruitById(int id);
 	public boolean updateCateFruit(CategoryFruit cateFruit);
 	public boolean deleteCateFruit(int id);
+	public String getCateFruitNameById(int id);
 }

@@ -62,7 +62,6 @@ public class CreateFruitsServlet extends HttpServlet {
 				categoryFruitId = cateFruitdao.findCategoryFruitIdByCategoryFruitName(name);
 			} catch (Exception e) {
 				e.printStackTrace();
-
 			}
 
 			Fruit fruit = new Fruit(fruitName, origin, price, categoryFruitId, fileName, desc);

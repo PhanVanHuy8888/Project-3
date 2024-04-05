@@ -48,7 +48,6 @@ public class LoginServlet extends HttpServlet {
 		    String password = request.getParameter("password");
 
 		    if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
-		        // If admin, set a placeholder user for session
 		        User adminUser = new User();
 		        adminUser.setName("Admin"); // Assuming there's a setName method in User class
 		        session.setAttribute("user", adminUser);
@@ -57,20 +56,17 @@ public class LoginServlet extends HttpServlet {
 		    } else {
 		        User user = dao.login(email, password);
 		        if (user != null) {
+		        	
 		            session.setAttribute("user", user);
 		            response.sendRedirect("index");
 		        } else {
 		            session.setAttribute("fail", "Email hoặc mật khẩu không đúng :((");
 		            response.sendRedirect("login");
-		           
 		        }
 		    }
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
-
-
-		
 	}
 
 }

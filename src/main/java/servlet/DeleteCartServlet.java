@@ -1,4 +1,4 @@
-package admin.servlet;
+package servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,34 +10,49 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import conn.ConnectionUtils;
-import dao.CateFruitDaoImpl;
+import dao.CartDaoImpl;
 import dao.CategoryDaoImpl;
 
 /**
- * Servlet implementation class DeleteCateFruit
+ * Servlet implementation class DeleteCartServlet
  */
-@WebServlet("/deleteCateFruit")
-public class DeleteCateFruit extends HttpServlet {
-	
+@WebServlet("/deleteCart")
+public class DeleteCartServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public DeleteCartServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
+			int cid = Integer.parseInt(request.getParameter("cid"));
 
-			CateFruitDaoImpl dao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-			boolean f = dao.deleteCateFruit(id);
+			CartDaoImpl dao = new CartDaoImpl(ConnectionUtils.getMSSQLConnection());
+			boolean f = dao.deleteCart(cid, id);
 			HttpSession session = request.getSession();
 
 			if (f) {
-				response.sendRedirect("cateFruitList");
+				String url = "checkout?id=" + id;
+				response.sendRedirect(url);
 			} else {
 				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("cateFruitList");
+				response.sendRedirect("cateList");
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
+
 }

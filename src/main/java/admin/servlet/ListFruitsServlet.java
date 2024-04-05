@@ -19,7 +19,7 @@ import entity.Fruit;
  * Servlet implementation class ListFruits
  */
 @WebServlet("/fruitList")
-public class ListFruits extends HttpServlet {
+public class ListFruitsServlet extends HttpServlet {
 	
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

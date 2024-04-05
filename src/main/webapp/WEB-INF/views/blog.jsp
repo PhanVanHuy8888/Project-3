@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,27 +29,27 @@
 
 	<!-- Page Header End -->
 	<div class="container-fluid p-0 mb-5">
-			<div class="owl-carousel header-carousel position-relative">
-				<div class="owl-carousel-item position-relative">
-					<img class="img-fluid" src="img/slide4.jpg" alt="">
-					<div
-						class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-						style="background: rgba(0, 0, 0, .2);">
-						<div class="container py-5">
+		<div class="owl-carousel header-carousel position-relative">
+			<div class="owl-carousel-item position-relative">
+				<img class="img-fluid" src="img/slide4.jpg" alt="">
+				<div
+					class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+					style="background: rgba(0, 0, 0, .2);">
+					<div class="container py-5">
 
-							<h1 class="display-2 text-white animated slideInDown mb-4">Blog</h1>
-							<nav aria-label="breadcrumb animated slideInDown">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-									<li class="breadcrumb-item text-white active"
-										aria-current="page">Bài viết</li>
-								</ol>
-							</nav>
-						</div>
+						<h1 class="display-2 text-white animated slideInDown mb-4">Blog</h1>
+						<nav aria-label="breadcrumb animated slideInDown">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+								<li class="breadcrumb-item text-white active"
+									aria-current="page">Bài viết</li>
+							</ol>
+						</nav>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	<!-- Page Header End -->
 	<!-- Breaking News Start -->
 	<div class="container-fluid mt-5 mb-3 pt-3">
@@ -147,7 +149,7 @@
 								ut consetetur et. Et duo tempor sea kasd clita ipsum et.
 								Takimata kasd diam justo est eos erat aliquyam et ut.</p>
 						</div>
-						
+
 					</div>
 					<!-- News Detail End -->
 

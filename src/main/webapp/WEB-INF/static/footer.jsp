@@ -17,13 +17,13 @@
 					<i class="fa fa-envelope me-3"></i>hphan0859@gmail.com
 				</p>
 				<div class="d-flex pt-2">
-					<a class="btn btn-outline-light btn-social" href=""><i
+					<a class="btn btn-outline-light btn-social" href="https://twitter.com/"><i
 						class="fab fa-twitter"></i></a> <a
-						class="btn btn-outline-light btn-social" href=""><i
+						class="btn btn-outline-light btn-social" href="https://www.facebook.com/"><i
 						class="fab fa-facebook-f"></i></a> <a
-						class="btn btn-outline-light btn-social" href=""><i
+						class="btn btn-outline-light btn-social" href="https://www.youtube.com/"><i
 						class="fab fa-youtube"></i></a> <a
-						class="btn btn-outline-light btn-social" href=""><i
+						class="btn btn-outline-light btn-social" href="https://www.instagram.com/"><i
 						class="fab fa-linkedin-in"></i></a>
 				</div>
 			</div>

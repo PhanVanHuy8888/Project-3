@@ -17,7 +17,7 @@ import dao.FruitDaoImpl;
  * Servlet implementation class DeleteFruit
  */
 @WebServlet("/deleteFruit")
-public class DeleteFruit extends HttpServlet {
+public class DeleteFruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    

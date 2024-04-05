@@ -49,9 +49,9 @@
 					<c:if test="${not empty user }">
 
 						<ul class="navbar-nav navbar-nav-right">
-							<li class="nav-item"><a
+							<li class="nav-item" style="margin-right: 10px;"><a
 								class="btn btn-success py-2 d-flex align-items-center"> <i
-									class="fas fa-user"></i> ${user.name}
+									class="fas fa-user"></i><span> ${user.name}</span>
 							</a></li>
 							<li class="nav-item"><a href="logout"
 								class="btn btn-primary py-2 d-flex align-items-center"> <i

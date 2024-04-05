@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="container-scroller">
 	<%@include file="home.jsp"%>
 	<div class="main-panel">
@@ -31,7 +32,6 @@
 												<td>${fruit.fruitName}</td>
 												<td><img src="img/${fruit.photo}" alt="ảnh" width="200"
 													height="200"></td>
-
 												<td>${fruit.origin}</td>
 												<td>${fruit.price}</td>
 												<td><a href="fruitEdit?id=${fruit.fruitId}"

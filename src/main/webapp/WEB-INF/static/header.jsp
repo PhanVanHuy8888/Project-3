@@ -14,7 +14,7 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<div class="navbar-nav mx-auto">
-			<c:forEach items="${cateList}" var="cate" >
+			<c:forEach items="${cateList}" var="cate">
 				<a href="${cate.link}" class="nav-item nav-link">${cate.categoryName}</a>
 			</c:forEach>
 		</div>
@@ -31,15 +31,24 @@
 					<a href="logout" class="dropdown-item">Đăng xuất</a>
 				</c:if>
 				<c:if test="${empty user }">
-					<a href="login" class="dropdown-item">Đăng nhập</a> <a
-					href="register" class="dropdown-item">Đăng ký</a>
+					<a href="login" class="dropdown-item">Đăng nhập</a>
+					<a href="register" class="dropdown-item">Đăng ký</a>
 				</c:if>
 			</div>
 		</div>
-		<a href="#"
-			class="btn btn-primary rounded-pill px-3 d-none d-lg-block"> <i
-			class="fas fa-shopping-cart"></i>
-		</a>
+		<c:if test="${not empty user }">
+			<a href="checkout?id=${user.id }"
+				class="btn btn-primary rounded-pill px-3 d-none d-lg-block"> <i
+				class="fas fa-shopping-cart"></i>
+			</a>
+		</c:if>
+		<c:if test="${empty user }">
+			<a href="login"
+				class="btn btn-primary rounded-pill px-3 d-none d-lg-block"> <i
+				class="fas fa-shopping-cart"></i>
+			</a>
+		</c:if>
+
 
 
 	</div>

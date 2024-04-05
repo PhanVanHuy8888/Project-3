@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,36 +23,74 @@
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css">
+
 <style>
-.nav-item.active {
-	position: relative;
+#toast {
+	min-width: 300px;
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	margin-left: -125px;
+	background: #333333;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	z-index: 1;
+	font-size: 18px;
+	visibility: hidden;
+	box-shadow: 0px 0px 100px #000;
+	border-radius: 15px;
 }
 
-.nav-item.active .fa-check-circle {
-	position: absolute;
-	right: -20px;
-	top: 50%;
-	transform: translateY(-50%);
-	color: green;
-	display: inline;
+#toast.display {
+	visibility: visible;
+	animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@
+keyframes fadeIn {from { bottom:0;
+	opacity: 0;
+}
+
+to {
+	bottom: 30px;
+	opacity: 1;
+}
+
+}
+@
+keyframes fadeOut {from { bottom:30px;
+	opacity: 1;
+}
+
+to {
+	bottom: 0;
+	opacity: 0;
+}
 }
 </style>
-<script>
-	function selectCategory(categoryId) {
-		var categories = document.getElementsByClassName('nav-item');
-		for (var i = 0; i < categories.length; i++) {
-			categories[i].classList.remove('active');
-			document.getElementById('icon-' + categories[i].id).classList
-					.add('d-none');
-		}
-		document.getElementById(categoryId).classList.add('active');
-		document.getElementById('icon-' + categoryId).classList
-				.remove('d-none');
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function showToast(content) {
+		$('#toast').addClass("display");
+		$('#toast').html(content);
+		setTimeout(function() {
+			$("#toast").removeClass("display");
+		}, 2000);
 	}
 </script>
 
 </head>
 <body>
+	<div id="toast"></div>
+	<c:if test="${not empty addCart}">
+		<script type="text/javascript">
+			showToast("${addCart}");
+		</script>
+	</c:if>
+	<input type="hidden" name="uid" value="${user.id }">
 	<div class="container-xxl bg-white p-0">
 		<%@include file="../static/header.jsp"%>
 		<div class="container-fluid p-0 mb-5">
@@ -65,8 +104,10 @@
 
 							<h1 class="display-2 text-white animated slideInDown mb-4">Fruit</h1>
 							<a href=""
-								class="btn btn-primary rounded-pill me-3 animated slideInLeft">Trang chủ</a>/ <a href=""
-								class="btn btn-dark rounded-pill animated slideInRight">Sản phẩm</a>
+								class="btn btn-primary rounded-pill me-3 animated slideInLeft">Trang
+								chủ</a>/ <a href=""
+								class="btn btn-dark rounded-pill animated slideInRight">Sản
+								phẩm</a>
 						</div>
 					</div>
 				</div>
@@ -98,7 +139,7 @@
 			<div class="col-lg-9 wow fadeIn">
 				<div class="container-xxl">
 					<div class="container">
-						<div class="row g-4">
+						<div class="row g-2">
 							<c:forEach items="${fruitList}" var="fruit">
 								<div class="col-lg-4 col-md-6 wow fadeInUp"
 									data-wow-delay="0.3s">
@@ -119,10 +160,12 @@
 											</div>
 											<div class="row g-1">
 												<div class="col-6 text-center">
-													<button class="btn btn-success">Xem Chi Tiết</button>
+													<a href="viewFruit?id=${fruit.fruitId}"
+														class="btn btn-success">Xem Chi Tiết</a>
 												</div>
 												<div class="col-6 text-center">
-													<button class="btn btn-success">Thêm Giỏ Hàng</button>
+													<a href="viewFruit?id=${fruit.fruitId}"
+														class="btn btn-primary">Thêm vào giỏ</a>
 												</div>
 											</div>
 										</div>

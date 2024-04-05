@@ -1,4 +1,5 @@
 /********** Template CSS **********/
+
 :root {
     --primary: #FE5D37;
     --light: #FFF5F3;
@@ -60,6 +61,8 @@
     height: 48px;
 }
 
+
+
 .btn-square,
 .btn-sm-square,
 .btn-lg-square {
@@ -87,7 +90,7 @@ h4,
 .display-4,
 .display-5,
 .display-6 {
-    font-family: 'Lobster Two', cursive;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
 }
 
@@ -99,7 +102,7 @@ h6,
 }
 
 .font-secondary {
-    font-family: 'Lobster Two', cursive;
+    font-family: "Poppins", sans-serif;
 }
 
 

@@ -10,7 +10,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title">Bài viết</h4>
-							<a href="cateCreate" class="btn badge badge-outline-primary">Thêm
+							<a href="blogCreate" class="btn badge badge-outline-primary">Thêm
 								mới</a>
 								<p>${errorString}</p>
 							<c:if test="${not empty fail }">
@@ -22,18 +22,23 @@
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Tên loại sản phẩm</th>
+											<th>Tiêu đề</th>
+											<th>Hình ảnh</th>
+											<th>Mô tả</th>
 											<th>Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${cateList}" var="cate" varStatus="loop">
+										<c:forEach items="${blogList}" var="blog" varStatus="loop">
 											<tr>
 												<td>${loop.index + 1}</td>
-												<td>${cate.categoryName}</td>
-												<td><a href="editCate?id=${cate.categoryId }"
+												<td>${blog.title}</td>
+												<td><img src="img/${blog.image}" alt="ảnh" width="200"
+													height="200"></td>
+												<td>${blog.description}</td>
+												<td><a href="editBlog?id=${blog.id}"
 													class="badge badge-outline-success">Sửa</a> <a
-													href="delete?id=${cate.categoryId}"
+													href="delete?id=${blog.id}"
 													class="badge badge-outline-danger">Xoá</a></td>
 											</tr>
 										</c:forEach>
