@@ -14,7 +14,7 @@
 	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
 	rel="stylesheet">
 <link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 	rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
@@ -90,7 +90,7 @@
 				<div class="col-lg-8">
 					<!-- News Detail Start -->
 					<div class="position-relative mb-3">
-						<img class="img-fluid w-100" src="img/news-700x435-1.jpg"
+						<img class="img-fluid w-100" src="img/blog-1.jpg"
 							style="object-fit: cover;">
 						<div class=" border border-top-0 p-4">
 							<div class="mb-3">
@@ -118,7 +118,7 @@
 							<h3 class="text-uppercase font-weight-bold mb-3">Lorem ipsum
 								dolor sit amet elit</h3>
 							<img class="img-fluid w-50 float-left mr-4 mb-2"
-								src="img/news-800x500-1.jpg">
+								src="img/blog-3.jpg">
 							<p>Diam dolor est labore duo invidunt ipsum clita et, sed et
 								lorem voluptua tempor invidunt at est sanctus sanctus. Clita
 								dolores sit kasd diam takimata justo diam lorem sed. Magna amet
@@ -163,7 +163,7 @@
 						</div>
 						<div class=" text-center border border-top-0 p-3">
 							<a href=""><img class="img-fluid"
-								src="img/news-800x500-2.jpg" alt=""></a>
+								src="img/blog-2.jpg" alt=""></a>
 						</div>
 					</div>
 					<!-- Ads End -->

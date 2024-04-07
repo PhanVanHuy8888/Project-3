@@ -379,4 +379,44 @@
     <servlet-name>CartHome</servlet-name>
     <url-pattern>/CartHome</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchServlet</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>servlet.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderServlet</display-name>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>servlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderSuccess</display-name>
+    <servlet-name>OrderSuccess</servlet-name>
+    <servlet-class>servlet.OrderSuccess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderSuccess</servlet-name>
+    <url-pattern>/OrderSuccess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditUserServlet</display-name>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>servlet.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern>/EditUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -2,12 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page isELIgnored="false"%>
-<%@ page import="dao.CartDaoImpl"%>
-<%@ page import="conn.ConnectionUtils"%>
-<%@ page import="java.util.*"%>
-<%@ page import="entity.Cart"%>
-<%@ page import="entity.User"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +58,7 @@
 								<td>${loop.index + 1}</td>
 								<th scope="row">${cart.fruitName}</th>
 								<td>${cart.origin}</td>
-								<td>${cart.price}</td>
+								<td><fmt:formatNumber pattern="#,##0 đ" value="${cart.price}" /></td>
 								<td><a href="deleteCart?cid=${cart.cartId}&id=${user.id}"
 									class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i>
 								</a></td>
@@ -70,42 +67,49 @@
 						</c:forEach>
 						<tr>
 							<td colspan="4">Tổng:</td>
-							<td>${totalPrice}</td>
+							<td><fmt:formatNumber pattern="#,##0 đ"
+									value="${totalPrice}" /></td>
 						</tr>
-
 					</tbody>
 				</table>
 			</div>
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-body">
+						
 						<h3 class="text-center text-success">Thông tin đơn hàng</h3>
-						<form class="row g-3">
+						<form action="order" method="POST" class="row g-3">
+							<input type="hidden" name="id" value="${user.id}">
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Tên</label> <input
-									type="text" class="form-control" id="inputEmail4"
-									placeholder="Tên">
+									type="text" class="form-control" id="inputEmail4" name="username"
+									value="${user.name}" placeholder="Tên">
 							</div>
 							<div class="col-md-6">
 								<label for="inputPassword4" class="form-label">Email</label> <input
-									type="email" class="form-control" id="inputPassword4"
-									placeholder="Email">
+									type="email" class="form-control" id="inputPassword4" name="email"
+									value="${user.email}" placeholder="Email">
 							</div>
 							<div class="col-12">
 								<label for="inputAddress" class="form-label">Địa chỉ</label> <input
-									type="text" class="form-control" id="inputAddress"
-									placeholder="Địa chỉ">
+									type="text" class="form-control" id="inputAddress" name="address"
+									value="${user.address}" placeholder="Địa chỉ">
 							</div>
 							<div class="col-12">
-								<label for="inputCity" class="form-label">Số điện thoại</label>
-								<input type="text" placeholder="Số điện thoại"
-									class="form-control" id="inputCity">
+								<label for="inputAddress" class="form-label">Địa chỉ cụ thể</label> <input
+									type="text" class="form-control" id="inputAddress" name="fullAdd"
+									 placeholder="Địa chỉ">
+							</div>
+							<div class="col-12">
+								<label for="inputCity" class="form-label" >Số điện thoại</label>
+								<input type="text" placeholder="Số điện thoại" name="phone"
+									value="${user.phone}" class="form-control" id="inputCity">
 							</div>
 							<div class="col-12">
 								<label for="inputState" class="form-label">Phương thức
-									thanh toán</label> <select id="inputState" class="form-select">
-									<option selected>Choose...</option>
-									<option>Thanh toán bằng tiền mặt</option>
+									thanh toán</label> <select name="pay" id="inputState" class="form-select">
+									<option value="noselect">--Chọn--</option>
+									<option value="COD">Thanh toán bằng tiền mặt</option>
 								</select>
 							</div>
 							<div class="col-12">

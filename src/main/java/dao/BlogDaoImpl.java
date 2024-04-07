@@ -23,7 +23,7 @@ public class BlogDaoImpl implements BlogDao {
 	@Override
 	public boolean addBlog(Blog blog) {
 		try {
-			String sql = "Insert into blog(title, description, image) values(?,?,?,?)";
+			String sql = "Insert into blog(title, description, image) values(?,?,?)";
 			 PreparedStatement p = conn.prepareStatement(sql);
 			 p.setString(1, blog.getTitle());
 			 p.setString(2, blog.getDescription());

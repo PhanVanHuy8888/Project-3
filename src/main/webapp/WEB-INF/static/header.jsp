@@ -18,6 +18,18 @@
 				<a href="${cate.link}" class="nav-item nav-link">${cate.categoryName}</a>
 			</c:forEach>
 		</div>
+		<form method="POST" action="search">
+			<div class="input-group input-group-sm" style="width: 200px;">
+				<input type="text" name="timKiem" class="form-control focus-visible"
+					placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+				<button style="padding: 10px;"
+					class="nav-link me-3 btn btn-primary d-none d-lg-block btn btn-outline-primary"
+					type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</div>
+		</form>
+
 
 		<div class="nav-item dropdown">
 			<a href="#"
@@ -27,7 +39,8 @@
 			<div
 				class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
 				<c:if test="${not empty user }">
-					<a href="#" class="dropdown-item">${user.name}</a>
+					<a href="editUser?id=${user.id}" class="dropdown-item">${user.name}</a>
+					<a href="order" class="dropdown-item">Đơn hàng</a>
 					<a href="logout" class="dropdown-item">Đăng xuất</a>
 				</c:if>
 				<c:if test="${empty user }">
@@ -48,8 +61,5 @@
 				class="fas fa-shopping-cart"></i>
 			</a>
 		</c:if>
-
-
-
 	</div>
 </nav>

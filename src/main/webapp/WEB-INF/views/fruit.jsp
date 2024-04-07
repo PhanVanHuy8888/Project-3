@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
 	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
 	rel="stylesheet">
 <link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 	rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
@@ -113,6 +114,21 @@ to {
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-lg-3 bg-light rounded"></div>
+			<div class="col-lg-3 ms-5 mb-5">
+				<form class="form-inline my-2 my-lg-0" action="search"
+					method="POST">
+					<div class="input-group">
+						<input class="form-control mr-sm-2" type="search" name="timKiem"
+							placeholder="Tìm kiếm" aria-label="Search">
+						<button class="btn btn-primary my-2 my-sm-0" type="submit">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
 
 		<div class="row row-mg-parent collection-wraper">
 			<div class="col-lg-3 bg-light rounded">
@@ -152,11 +168,16 @@ to {
 										<div class="bg-light rounded p-4 pt-5 mt-n5"
 											style="background-color: #cfe2f3;">
 											<a class="d-block text-center h3 mt-3 mb-4" href="">${fruit.fruitName}</a>
+											<div class="d-flex align-items-center justify-content-center">
+												<span class="text-black rounded-pill font-weight-bold"
+													href="">Xuất xứ: ${fruit.origin}</span>
+											</div>
 											<div
 												class="d-flex align-items-center justify-content-center mb-4">
 												<span
-													class="text-black rounded-pill py-2 px-3 font-weight-bold"
-													href="">${fruit.price}đ</span>
+													class="text-black rounded-pill py-2 px-3 font-weight-bold">
+													<fmt:formatNumber pattern="#,##0 đ" value="${fruit.price}" />
+												</span>
 											</div>
 											<div class="row g-1">
 												<div class="col-6 text-center">

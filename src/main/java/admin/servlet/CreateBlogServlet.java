@@ -2,6 +2,7 @@ package admin.servlet;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import entity.Blog;
  * Servlet implementation class CreateBlogServlet
  */
 @WebServlet("/blogCreate")
+@MultipartConfig
 public class CreateBlogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -47,6 +49,7 @@ public class CreateBlogServlet extends HttpServlet {
 		try {
 			String title = request.getParameter("title");
 			String desc = request.getParameter("description");	
+			
 			Part part = request.getPart("photo");
 			System.out.println(part);
 			String realPath = getServletContext().getRealPath("/img");

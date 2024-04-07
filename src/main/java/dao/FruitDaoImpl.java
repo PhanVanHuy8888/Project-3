@@ -155,4 +155,31 @@ public class FruitDaoImpl implements FruitDao {
 		return false;
 	}
 
+	@Override
+	public List<Fruit> searchFruit(String nameFruit) {
+		List<Fruit> lst = new ArrayList<Fruit>();
+		try {
+			String sql = "Select * from fruit where fruitName like ?";
+			PreparedStatement p = conn.prepareStatement(sql);
+			p.setString(1, "%" + nameFruit + "%");
+			ResultSet rs = p.executeQuery();
+
+			while (rs.next()) {
+				Fruit fruit = new Fruit();
+				fruit.setFruitId(rs.getInt("fruitId"));
+				fruit.setFruitName(rs.getString("fruitName"));
+				fruit.setOrigin(rs.getString("origin"));
+				fruit.setPrice(rs.getFloat("price"));
+				fruit.setPhoto(rs.getString("photo"));
+				fruit.setCategoryFruitId(rs.getInt("categoryFruitId"));
+				fruit.setDescription(rs.getString("description"));
+				lst.add(fruit);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lst;
+		
+	}
+
 }

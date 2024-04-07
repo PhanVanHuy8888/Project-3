@@ -4,7 +4,10 @@
     // Initiate the wowjs
     new WOW().init();
 
-
+	
+	
+	
+	
     // Spinner
     var spinner = function () {
         setTimeout(function () {

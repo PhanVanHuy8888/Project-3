@@ -11,5 +11,6 @@ public interface FruitDao {
 	public Fruit getFruitById(int id);
 	public boolean updateFruit(Fruit fruit);
 	public boolean deleteFruit(int id);
-	List<Fruit> getFruitsByCategoryId(int categoryId);
+	public List<Fruit> getFruitsByCategoryId(int categoryId);
+	public List<Fruit> searchFruit(String nameFruit);
 }
