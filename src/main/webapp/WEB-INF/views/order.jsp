@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,35 +27,26 @@
 </head>
 <body>
 	<%@include file="../static/header.jsp"%>
-
+	<input type="hidden" name="email" value="${user.email }" >
 	<div class="container mt-5 mb-5">
-		<table class="table">
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">First</th>
-					<th scope="col">Last</th>
-					<th scope="col">Handle</th>
+					<th scope="col">Mã đơn hàng</th>
+					<th scope="col">Tên sản phẩm</th>
+					<th scope="col">Giá</th>
+					<th scope="col">Hình thức thanh toán</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-				</tr>
+				<c:forEach items="${orderList}" var="order">
+					<tr>
+						<td>${order.orderId}</td>
+						<td>${order.fruitName}</td>
+						<td><fmt:formatNumber pattern="#,##0 đ" value="${order.price}" /></td>
+						<td>${order.pay}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

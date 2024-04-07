@@ -12,7 +12,7 @@
 							<h4 class="card-title">Bài viết</h4>
 							<a href="blogCreate" class="btn badge badge-outline-primary">Thêm
 								mới</a>
-								<p>${errorString}</p>
+							<p>${errorString}</p>
 							<c:if test="${not empty fail }">
 								<p class="text-center text-success">${fail }</p>
 								<c:remove var="msg" scope="session" />
@@ -32,10 +32,12 @@
 										<c:forEach items="${blogList}" var="blog" varStatus="loop">
 											<tr>
 												<td>${loop.index + 1}</td>
-												<td>${blog.title}</td>
+												<td
+													style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${blog.title}</td>
 												<td><img src="img/${blog.image}" alt="ảnh" width="200"
 													height="200"></td>
-												<td>${blog.description}</td>
+												<td
+													style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${blog.description}</td>
 												<td><a href="editBlog?id=${blog.id}"
 													class="badge badge-outline-success">Sửa</a> <a
 													href="delete?id=${blog.id}"

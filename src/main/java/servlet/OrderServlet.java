@@ -44,8 +44,14 @@ public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			
+			String email = request.getParameter("email");
+			OrderDaoImpl dao1 = new OrderDaoImpl(ConnectionUtils.getMSSQLConnection());
 			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
 			List<Category> list = dao.getAllCate();
+			List<Order> lst = dao1.getOrderByEmail(email);
+			System.out.println(lst);
+			request.setAttribute("orderList", lst);
 			request.setAttribute("cateList", list);
 			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/views/order.jsp");
 			dispatcher.forward(request, response);

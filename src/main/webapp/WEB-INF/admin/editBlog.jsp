@@ -50,14 +50,14 @@
                 </c:if>
 
                 <form action="${pageContext.request.contextPath}/editCate" method="POST" class="forms-sample">
-                    <input type="hidden" name="id" value="${cate.categoryId}">
+                    <input type="hidden" name="id" value="${blog.id}">
                     <div class="form-group">
                         <label for="exampleInputName1">Tiêu đề</label>
-                        <input type="text" class="form-control" name="categoryName" placeholder="Name" value="${cate.categoryName}">
+                        <input type="text" class="form-control" name="title" placeholder="Name" value="${cate.categoryName}">
                     </div>
                      <div class="form-group">
                         <label for="exampleInputName1">Mô tả</label>
-                        <input type="text" class="form-control" name="categoryName" placeholder="Name" value="${cate.categoryName}">
+                        <input type="text" class="form-control" name="description" placeholder="Name" value="${cate.categoryName}">
                     </div>
                     
                     <button type="submit" class="btn btn-primary mr-2">Lưu</button>

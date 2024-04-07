@@ -419,4 +419,14 @@
     <servlet-name>EditUserServlet</servlet-name>
     <url-pattern>/EditUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListOrderServlet</display-name>
+    <servlet-name>ListOrderServlet</servlet-name>
+    <servlet-class>admin.servlet.ListOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListOrderServlet</servlet-name>
+    <url-pattern>/ListOrderServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

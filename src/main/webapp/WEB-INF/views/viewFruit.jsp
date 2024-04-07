@@ -1,6 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="vi">
@@ -52,12 +54,13 @@
 
 							<h3>${fruit.fruitName}</h3>
 							<p class="single-product-pricing">
-								<span>${fruit.price}đ</span>
+								<span> <fmt:formatNumber pattern="#,##0 đ"
+										value="${fruit.price}" />
+								</span>
 							</p>
 							<h3>Xuất xứ: ${fruit.origin }</h3>
 							<p>${fruit.description }</p>
 							<div class="single-product-form">
-								<input name="quantity" type="number" placeholder="1">
 								<c:if test="${not empty user }">
 									<a href="cart?id=${fruit.fruitId}&uid=${user.id}"
 										class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm

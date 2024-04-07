@@ -40,7 +40,7 @@
 				class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
 				<c:if test="${not empty user }">
 					<a href="editUser?id=${user.id}" class="dropdown-item">${user.name}</a>
-					<a href="order" class="dropdown-item">Đơn hàng</a>
+					<a href="order?email=${user.email }" class="dropdown-item">Đơn hàng</a>
 					<a href="logout" class="dropdown-item">Đăng xuất</a>
 				</c:if>
 				<c:if test="${empty user }">

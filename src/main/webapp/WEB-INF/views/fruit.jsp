@@ -106,29 +106,17 @@ to {
 							<h1 class="display-2 text-white animated slideInDown mb-4">Fruit</h1>
 							<a href=""
 								class="btn btn-primary rounded-pill me-3 animated slideInLeft">Trang
-								chủ</a>/ <a href=""
+								chủ</a> <i class="fa-solid fa-chevron-right"></i>
+							<a href=""
 								class="btn btn-dark rounded-pill animated slideInRight">Sản
 								phẩm</a>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-3 bg-light rounded"></div>
-			<div class="col-lg-3 ms-5 mb-5">
-				<form class="form-inline my-2 my-lg-0" action="search"
-					method="POST">
-					<div class="input-group">
-						<input class="form-control mr-sm-2" type="search" name="timKiem"
-							placeholder="Tìm kiếm" aria-label="Search">
-						<button class="btn btn-primary my-2 my-sm-0" type="submit">
-							<i class="fa-solid fa-magnifying-glass"></i>
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
+
 
 		<div class="row row-mg-parent collection-wraper">
 			<div class="col-lg-3 bg-light rounded">
