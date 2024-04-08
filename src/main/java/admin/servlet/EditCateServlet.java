@@ -28,7 +28,7 @@ public class EditCateServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle exception
+            
         }
     }
 

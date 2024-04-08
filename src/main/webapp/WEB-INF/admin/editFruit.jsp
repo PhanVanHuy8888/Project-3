@@ -87,7 +87,6 @@
 						<label for="exampleFormControlFile1">Upload Photo</label> <input
 							name="photo" type="file" class="form-control-file"
 							id="exampleFormControlFile1" value="${fruit.photo}">
-
 					</div>
 					<button type="submit" class="btn btn-primary mr-2">Lưu</button>
 					<a href="fruitList" class="btn btn-dark">Quay lại</a>

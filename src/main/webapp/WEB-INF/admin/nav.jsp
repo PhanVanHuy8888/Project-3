@@ -23,7 +23,7 @@
 								class="dropdown-item">${user.name}</h4>
 						</c:if>
 					</div>
-				</div>	
+				</div>
 			</div>
 		</li>
 
@@ -37,26 +37,25 @@
 					class="mdi mdi-speedometer"></i>
 			</span> <span class="menu-title">Sản phẩm</span>
 		</a></li>
-		<li class="nav-item menu-items">
-            <a class="nav-link" href="cateFruitList">
-              <span class="menu-icon">
-                <i class="mdi mdi-contacts"></i>
-              </span>
-              <span class="menu-title">Loại sản phẩm</span>
-            </a>
-          </li>
-		<li class="nav-item menu-items">
-            <a class="nav-link" href="blogList">
-              <span class="menu-icon">
-                <i class="mdi mdi-chart-bar"></i>
-              </span>
-              <span class="menu-title">Bài viết</span>
-            </a>
-          </li>
 		<li class="nav-item menu-items"><a class="nav-link"
-			href="orderAdmin"> <span class="menu-icon">
-					<i class="mdi mdi-playlist-play"></i>
+			href="cateFruitList"> <span class="menu-icon"> <i
+					class="mdi mdi-contacts"></i>
+			</span> <span class="menu-title">Loại sản phẩm</span>
+		</a></li>
+		<li class="nav-item menu-items"><a class="nav-link"
+			href="blogList"> <span class="menu-icon"> <i
+					class="mdi mdi-chart-bar"></i>
+			</span> <span class="menu-title">Bài viết</span>
+		</a></li>
+		<li class="nav-item menu-items"><a class="nav-link"
+			href="orderAdmin"> <span class="menu-icon"> <i
+					class="mdi mdi-playlist-play"></i>
 			</span> <span class="menu-title">Đơn hàng</span>
+		</a></li>
+		<li class="nav-item menu-items"><a class="nav-link"
+			href="postList"> <span class="menu-icon"> <i
+					class="mdi mdi-chart-bar"></i>
+			</span> <span class="menu-title">Bài viết Trending</span>
 		</a></li>
 	</ul>
 </nav>

@@ -11,4 +11,5 @@ public interface BlogDao {
 	public Blog getBlog(int id);
 	public boolean updateBlog(Blog blog);
 	public boolean deleteBlog(int id);
+	
 }

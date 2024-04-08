@@ -16,20 +16,22 @@ import java.nio.file.Path;
 
 import conn.ConnectionUtils;
 import dao.BlogDaoImpl;
+import dao.PostDaoImpl;
 import entity.Blog;
+import entity.PostTrend;
 
 /**
- * Servlet implementation class EditBlogServlet
+ * Servlet implementation class EditPostServlet
  */
-@WebServlet("/editBlog")
+@WebServlet("/editPost")
 @MultipartConfig
-public class EditBlogServlet extends HttpServlet {
+public class EditPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EditBlogServlet() {
+	public EditPostServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -37,7 +39,7 @@ public class EditBlogServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/editBlog.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/editPost.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -56,17 +58,17 @@ public class EditBlogServlet extends HttpServlet {
 				Files.createDirectory(Path.of(realPath));
 			}
 
-			Blog blog = new Blog();
-			blog.setId(id);
-			blog.setTitle(title);
-			blog.setDescription(description);
-			blog.setImage(fileName);
+			PostTrend post = new PostTrend();
+			post.setId(id);
+			post.setTitle(title);
+			post.setDescription(description);
+			post.setImg(fileName);
 
-			BlogDaoImpl dao = new BlogDaoImpl(ConnectionUtils.getMSSQLConnection());
-			boolean f = dao.updateBlog(blog);
+			PostDaoImpl dao = new PostDaoImpl(ConnectionUtils.getMSSQLConnection());
+			boolean f = dao.updatePostTrend(post);
 			if (f) {
 				part.write(realPath + File.separator + fileName);
-				response.sendRedirect("blogList");
+				response.sendRedirect("postList");
 			} else {
 				response.sendRedirect("editBlog?id=" + id);
 

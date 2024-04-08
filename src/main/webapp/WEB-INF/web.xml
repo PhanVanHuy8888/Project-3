@@ -429,4 +429,54 @@
     <servlet-name>ListOrderServlet</servlet-name>
     <url-pattern>/ListOrderServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListPostTrend</display-name>
+    <servlet-name>ListPostTrend</servlet-name>
+    <servlet-class>admin.servlet.ListPostTrend</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListPostTrend</servlet-name>
+    <url-pattern>/ListPostTrend</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditPostServlet</display-name>
+    <servlet-name>EditPostServlet</servlet-name>
+    <servlet-class>admin.servlet.EditPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPostServlet</servlet-name>
+    <url-pattern>/EditPostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeletePostServlet</display-name>
+    <servlet-name>DeletePostServlet</servlet-name>
+    <servlet-class>admin.servlet.DeletePostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePostServlet</servlet-name>
+    <url-pattern>/DeletePostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreatePostServlet</display-name>
+    <servlet-name>CreatePostServlet</servlet-name>
+    <servlet-class>admin.servlet.CreatePostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreatePostServlet</servlet-name>
+    <url-pattern>/CreatePostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PostServlet</display-name>
+    <servlet-name>PostServlet</servlet-name>
+    <servlet-class>servlet.PostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostServlet</servlet-name>
+    <url-pattern>/PostServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

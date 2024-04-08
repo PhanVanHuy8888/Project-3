@@ -9,8 +9,8 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<h4 class="card-title">Bài viết</h4>
-							<a href="blogCreate" class="btn badge badge-outline-primary">Thêm
+							<h4 class="card-title">Bài viết Trending</h4>
+							<a href="postCreate" class="btn badge badge-outline-primary">Thêm
 								mới</a>
 							<p>${errorString}</p>
 							<c:if test="${not empty fail }">
@@ -29,18 +29,18 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${blogList}" var="blog" varStatus="loop">
+										<c:forEach items="${postList}" var="post" varStatus="loop">
 											<tr>
 												<td>${loop.index + 1}</td>
 												<td
-													style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${blog.title}</td>
-												<td><img src="img/${blog.image}" alt="ảnh" width="200"
+													style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${post.title}</td>
+												<td><img src="img/${post.img}" alt="ảnh" width="200"
 													height="200"></td>
 												<td
-													style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${blog.description}</td>
-												<td><a href="editBlog?id=${blog.id}"
+													style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${post.description}</td>
+												<td><a href="editPost?id=${post.id}"
 													class="badge badge-outline-success">Sửa</a> <a
-													href="deleteBlog?id=${blog.id}"
+													href="deletePost?id=${post.id}"
 													class="badge badge-outline-danger">Xoá</a></td>
 											</tr>
 										</c:forEach>

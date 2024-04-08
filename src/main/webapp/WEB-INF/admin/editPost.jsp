@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
-<%@ page import="dao.BlogDaoImpl"%>
+<%@ page import="dao.PostDaoImpl"%>
 <%@ page import="conn.ConnectionUtils"%>
 <%@ page import="java.util.*"%>
-<%@ page import="entity.Blog"%>
+<%@ page import="entity.PostTrend"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,34 +53,35 @@
 
 				<%
 				int id = Integer.parseInt(request.getParameter("id"));
-				BlogDaoImpl dao = new BlogDaoImpl(ConnectionUtils.getMSSQLConnection());
-				Blog blog = dao.getBlog(id);
+				PostDaoImpl dao = new PostDaoImpl(ConnectionUtils.getMSSQLConnection());
+				PostTrend post = dao.getPostTrend(id);
+				
 				%>
 
-				<form action="${pageContext.request.contextPath}/editBlog"
+				<form action="${pageContext.request.contextPath}/editPost"
 					method="POST" enctype="multipart/form-data" class="forms-sample">
 
-					<input name="id" type="hidden" value="<%=blog.getId()%>">
+					<input name="id" type="hidden" value="<%=post.getId()%>">
 					<div class="form-group">
 						<label for="exampleInputName1">Tiêu đề</label> <input type="text"
-							class="form-control" value="<%=blog.getTitle()%>" name="title"
+							class="form-control" value="<%=post.getTitle()%>" name="title"
 							placeholder="Tên">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputName1">Mô tả</label> <input type="text"
-							class="form-control" value="<%=blog.getDescription()%>"
+							class="form-control" value="<%=post.getDescription()%>"
 							name="description" placeholder="Tên">
 					</div>
 					<div class="form-group">
 						<label for="exampleFormControlFile1">Tải ảnh lên</label> <input
 							name="photo" type="file"
-							value="<%=blog.getImage()%>"
+							value="<%=post.getImg()%>"
 								class="form-control-file" id="exampleFormControlFile1">
 					</div>
 
 
 					<button type="submit" class="btn btn-primary mr-2">Lưu</button>
-					<a href="blogList" class="btn btn-dark">Quay lại</a>
+					<a href="postList" class="btn btn-dark">Quay lại</a>
 				</form>
 
 			</div>

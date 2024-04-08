@@ -2,15 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
-<%@ page import="dao.BlogDaoImpl"%>
-<%@ page import="conn.ConnectionUtils"%>
-<%@ page import="java.util.*"%>
-<%@ page import="entity.Blog"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sửa bài viết</title>
+<title>Thêm mới bài viết Trending</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
 	rel="stylesheet">
@@ -45,44 +41,33 @@
 	<div class="col-12 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Sửa Bài Viết</h4>
+				<h4 class="card-title">Thêm mới bài viết Trending</h4>
 				<c:if test="${not empty fail}">
-					<p class="text-center text-success">${fail}</p>
-					<c:remove var="fail" scope="session" />
-				</c:if>
-
-				<%
-				int id = Integer.parseInt(request.getParameter("id"));
-				BlogDaoImpl dao = new BlogDaoImpl(ConnectionUtils.getMSSQLConnection());
-				Blog blog = dao.getBlog(id);
-				%>
-
-				<form action="${pageContext.request.contextPath}/editBlog"
-					method="POST" enctype="multipart/form-data" class="forms-sample">
-
-					<input name="id" type="hidden" value="<%=blog.getId()%>">
+                    <p class="text-center text-success">${fail}</p>
+                    <c:remove var="fail" scope="session"/>
+                </c:if>
+				<form action="postCreate" method="post"
+					enctype="multipart/form-data" class="forms-sample">
 					<div class="form-group">
 						<label for="exampleInputName1">Tiêu đề</label> <input type="text"
-							class="form-control" value="<%=blog.getTitle()%>" name="title"
-							placeholder="Tên">
+							class="form-control" name="title" id="exampleInputName1"
+							placeholder="Tiêu đề">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputName1">Mô tả</label> <input type="text"
-							class="form-control" value="<%=blog.getDescription()%>"
-							name="description" placeholder="Tên">
+						<label for="exampleInputEmail3">Mô tả</label> <input type="text"
+							name="description" class="form-control" id="exampleInputEmail3"
+							placeholder="Mô tả">
 					</div>
 					<div class="form-group">
-						<label for="exampleFormControlFile1">Tải ảnh lên</label> <input
-							name="photo" type="file"
-							value="<%=blog.getImage()%>"
-								class="form-control-file" id="exampleFormControlFile1">
+						<div class="form-group">
+							<label for="exampleFormControlFile1">Upload Photo</label> <input
+								name="photo" type="file" class="form-control-file"
+								id="exampleFormControlFile1">
+						</div>
 					</div>
-
-
 					<button type="submit" class="btn btn-primary mr-2">Lưu</button>
-					<a href="blogList" class="btn btn-dark">Quay lại</a>
+					<a href="postList" class="btn btn-dark">Quay lại</a>
 				</form>
-
 			</div>
 		</div>
 	</div>
