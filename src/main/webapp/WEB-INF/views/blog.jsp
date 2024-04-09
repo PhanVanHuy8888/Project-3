@@ -134,7 +134,7 @@
 										<a
 											style="overflow: hidden; text-overflow: ellipsis;"
 											class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-											href="">${post.title}</a>
+											href="postDetail?id=${post.id}">${post.title}</a>
 									</div>
 								</div>
 

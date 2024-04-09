@@ -40,7 +40,7 @@
 											<td><fmt:formatNumber pattern="#,##0 đ"
 													value="${order.price}" /></td>
 											<td>${order.pay}</td>
-											<td><a class="btn btn-success"> <i class="fa-solid fa-eye"></i>
+											<td><a href="detailOrder?id=${order.id }" class="btn btn-success"> <i class="fa-solid fa-eye"></i>
 											</a></td>
 										</tr>
 									</c:forEach>

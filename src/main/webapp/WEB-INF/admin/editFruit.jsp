@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
+<%@ page import="dao.FruitDaoImpl"%>
+<%@ page import="conn.ConnectionUtils"%>
+<%@ page import="java.util.*"%>
+<%@ page import="entity.Fruit"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,24 +50,31 @@
 					<p class="text-center text-success">${fail}</p>
 					<c:remove var="fail" scope="session" />
 				</c:if>
+				
+				<%
+				int id = Integer.parseInt(request.getParameter("id"));
+				FruitDaoImpl dao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+				Fruit fruit = dao.getFruitById(id);
+				%>
+				
 				<form action="fruitEdit"
 					method="post" enctype="multipart/form-data" class="forms-sample">
-					<input type="hidden" name="id" value="${fruit.fruitId}">
+					<input type="hidden" name="id" value="<%=fruit.getFruitId()%>">
 					<div class="form-group">
 						<label for="exampleInputName1">Tên</label> <input type="text"
 							class="form-control" name="fruitName" id="exampleInputName1"
-							placeholder="Name" value="${fruit.fruitName}">
+							placeholder="Name" value="<%=fruit.getFruitName()%>">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail3">Xuất xứ</label> <input type="text"
 							name="origin" class="form-control" id="exampleInputEmail3"
-							placeholder="Xuất xứ" value="${fruit.origin}">
+							placeholder="Xuất xứ" value="<%=fruit.getOrigin()%>">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword4">Giá</label> <input
 							type="number" name="price" class="form-control"
 							id="exampleInputPassword4" placeholder="Giá"
-							value="${fruit.price}">
+							value="<%=fruit.getPrice()%>">
 					</div>
 					<div class="form-group">
 						<label for="inputState">Loại trái cây</label> <select
@@ -81,12 +92,12 @@
 						<label for="exampleInputPassword4">Mô tả</label> <input
 							type="text" name="description" class="form-control"
 							id="exampleInputPassword4" placeholder="Mô tả"
-							value="${fruit.description}">
+							value="<%=fruit.getDescription()%>">
 					</div>
 					<div class="form-group">
 						<label for="exampleFormControlFile1">Upload Photo</label> <input
 							name="photo" type="file" class="form-control-file"
-							id="exampleFormControlFile1" value="${fruit.photo}">
+							id="exampleFormControlFile1" value="<%=fruit.getPhoto()%>">
 					</div>
 					<button type="submit" class="btn btn-primary mr-2">Lưu</button>
 					<a href="fruitList" class="btn btn-dark">Quay lại</a>

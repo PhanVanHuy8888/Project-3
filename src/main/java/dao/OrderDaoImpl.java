@@ -72,26 +72,54 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Order> getAllOrder() {
 		List<Order> lst = new ArrayList<Order>();
 		try {
-			String sql = "Select orderId, username, email, address, phone, fruitName, price, pay from orders";
+			String sql = "Select * from orders";
 			PreparedStatement p = conn.prepareStatement(sql);
-			
+
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
 				Order o = new Order();
-				o.setOrderId(rs.getString(1));
-				o.setUsername(rs.getString(2));
-				o.setEmail(rs.getString(3));
-				o.setAddress(rs.getString(4));
-				o.setPhone(rs.getString(5));
-				o.setFruitName(rs.getString(6));
-				o.setPrice(rs.getString(7));
-				o.setPay(rs.getString(8));
+				o = new Order();
+				o.setId(rs.getInt(1));
+				o.setOrderId(rs.getString(2));
+				o.setUsername(rs.getString(3));
+				o.setEmail(rs.getString(4));
+				o.setAddress(rs.getString(5));
+				o.setPhone(rs.getString(6));
+				o.setFruitName(rs.getString(7));
+				o.setPrice(rs.getString(8));
+				o.setPay(rs.getString(9));
 				lst.add(o);
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return lst;
+	}
+
+	@Override
+	public Order getOrderById(int id) {
+		Order o = null;
+		try {
+			String sql = "Select * from orders where id=?";
+			PreparedStatement p = conn.prepareStatement(sql);
+			p.setInt(1, id);
+			ResultSet rs = p.executeQuery();
+			while (rs.next()) {
+				o = new Order();
+				o.setId(rs.getInt(1));
+				o.setOrderId(rs.getString(2));
+				o.setUsername(rs.getString(3));
+				o.setEmail(rs.getString(4));
+				o.setAddress(rs.getString(5));
+				o.setPhone(rs.getString(6));
+				o.setFruitName(rs.getString(7));
+				o.setPrice(rs.getString(8));
+				o.setPay(rs.getString(9));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return o;
 	}
 
 }

@@ -2,14 +2,18 @@ package admin.servlet;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.nio.file.Path;
+import java.nio.file.Files;
 
 import conn.ConnectionUtils;
 import dao.CateFruitDaoImpl;
@@ -20,6 +24,7 @@ import entity.CategoryFruit;
 import entity.Fruit;
 
 @WebServlet("/fruitEdit")
+@MultipartConfig
 public class EditFruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,25 +39,8 @@ public class EditFruitServlet extends HttpServlet {
 			List<CategoryFruit> fruitCategories = cateFruitDao.getAllCateFruit();
 			request.setAttribute("fruitCategories", fruitCategories);
 
-			String idParam = request.getParameter("id");
-			if (idParam != null && !idParam.isEmpty()) {
-				int fruitId = Integer.parseInt(idParam);
-				FruitDaoImpl dao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-				Fruit fruit = dao.getFruitById(fruitId);
-				if (fruit != null) {
-					request.setAttribute("fruit", fruit);
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/editFruit.jsp");
-					dispatcher.forward(request, response);
-				} else {
-					// Xử lý khi không tìm thấy trái cây với id đã cung cấp
-					// Ví dụ: chuyển hướng hoặc hiển thị thông báo lỗi
-					response.sendRedirect("fruitList");
-				}
-			} else {
-				// Xử lý khi không có tham số "id"
-				// Ví dụ: chuyển hướng hoặc hiển thị thông báo lỗi
-				response.sendRedirect("fruitList");
-			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin/editFruit.jsp");
+			dispatcher.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// Xử lý exception
@@ -62,19 +50,20 @@ public class EditFruitServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			String idParam = request.getParameter("id");
-			if (idParam == null || idParam.isEmpty()) {
-				// Nếu id không được gửi, chuyển hướng hoặc xử lý lỗi ở đây
-				response.sendRedirect("fruitList");
-				return; // Kết thúc phương thức để tránh tiếp tục thực thi code dưới
-			}
-
-			int id = Integer.parseInt(idParam);
+			int id = Integer.parseInt(request.getParameter("id"));
+			
 			String fruitName = request.getParameter("fruitName");
 			String origin = request.getParameter("origin");
 			Float price = Float.parseFloat(request.getParameter("price"));
-			String photo = request.getParameter("photo");
+			Part part = request.getPart("photo");
+			String desc = request.getParameter("description");
 			String name = request.getParameter("categoryFruitName");
+			
+			String realPath = getServletContext().getRealPath("/img");
+			String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
+			if (!Files.exists(Path.of(realPath))) {
+				Files.createDirectory(Path.of(realPath));
+			}
 
 			CateFruitDaoImpl cateFruitDao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 			int categoryFruitId = -1;
@@ -82,28 +71,28 @@ public class EditFruitServlet extends HttpServlet {
 				categoryFruitId = cateFruitDao.findCategoryFruitIdByCategoryFruitName(name);
 			}
 
-			String desc = request.getParameter("description");
+			
 
 			Fruit fruit = new Fruit();
 			fruit.setFruitId(id);
 			fruit.setFruitName(fruitName);
 			fruit.setOrigin(origin);
 			fruit.setPrice(price);
-			fruit.setPhoto(photo);
+			fruit.setPhoto(fileName);
 			fruit.setCategoryFruitId(categoryFruitId);
 			fruit.setDescription(desc);
 
 			FruitDaoImpl dao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
 			boolean success = dao.updateFruit(fruit);
 
-			HttpSession session = request.getSession();
 			if (success) {
+				part.write(realPath + File.separator + fileName);
 				response.sendRedirect("fruitList");
 			} else {
-				session.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
-				response.sendRedirect("editCate?id=" + id);
+				request.setAttribute("fail", "Lỗi vui lòng kiểm tra lại :((");
+				response.sendRedirect("fruitEdit?id=" + id);
 			}
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 			// Xử lý exception
 		}

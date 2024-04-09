@@ -479,4 +479,24 @@
     <servlet-name>PostServlet</servlet-name>
     <url-pattern>/PostServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PostDetaiServlet</display-name>
+    <servlet-name>PostDetaiServlet</servlet-name>
+    <servlet-class>servlet.PostDetaiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostDetaiServlet</servlet-name>
+    <url-pattern>/PostDetaiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderDetailServlet</display-name>
+    <servlet-name>OrderDetailServlet</servlet-name>
+    <servlet-class>admin.servlet.OrderDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderDetailServlet</servlet-name>
+    <url-pattern>/OrderDetailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

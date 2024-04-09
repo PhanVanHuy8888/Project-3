@@ -28,8 +28,14 @@
 		</li>
 
 		<li class="nav-item menu-items"><a class="nav-link"
+			href="cateList"> <span class="menu-icon"><i
+					class="mdi mdi-security"></i> </span> <span class="menu-title">Tài
+					khoản</span>
+		</a></li>
+
+		<li class="nav-item menu-items"><a class="nav-link"
 			href="cateList"> <span class="menu-icon"> <i
-					class="mdi mdi-speedometer"></i>
+					class="mdi mdi-table-large"></i>
 			</span> <span class="menu-title">Danh mục</span>
 		</a></li>
 		<li class="nav-item menu-items"><a class="nav-link"
@@ -54,7 +60,7 @@
 		</a></li>
 		<li class="nav-item menu-items"><a class="nav-link"
 			href="postList"> <span class="menu-icon"> <i
-					class="mdi mdi-chart-bar"></i>
+					class="mdi mdi-file-document-box"></i>
 			</span> <span class="menu-title">Bài viết Trending</span>
 		</a></li>
 	</ul>
