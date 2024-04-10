@@ -1,3 +1,4 @@
+
 package servlet;
 
 import jakarta.servlet.RequestDispatcher;
@@ -16,6 +17,7 @@ import dao.CateFruitDaoImpl;
 import entity.Category;
 import entity.Fruit;
 import entity.CategoryFruit;
+
 /**
  * Servlet implementation class FruitServlet
  */
@@ -36,37 +38,35 @@ public class FruitServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-	    try {
-	        CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
-	        FruitDaoImpl fruitDao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
-	        CateFruitDaoImpl cateFruitDao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+			throws ServletException, IOException {
+		try {
 
-	        List<Category> list = dao.getAllCate();
-	        List<CategoryFruit> listCateFruit = cateFruitDao.getAllCateFruit();
-	        List<Fruit> lst = fruitDao.getAllFruit();
-	        
-	        
-	        // Lấy ID của danh mục được chọn từ request parameter (nếu có)
-	        String categoryIdParam = request.getParameter("categoryId");
-	        if (categoryIdParam != null && !categoryIdParam.isEmpty()) {
-	            int categoryId = Integer.parseInt(categoryIdParam);
-	            // Lấy danh sách sản phẩm thuộc danh mục được chọn
-	            List<Fruit> filteredFruits = fruitDao.getFruitsByCategoryId(categoryId);
-	            request.setAttribute("fruitList", filteredFruits);
-	        } else {
-	            request.setAttribute("fruitList", lst);
-	        }
-	        request.setAttribute("cateFruitList", listCateFruit);
-	        request.setAttribute("cateList", list);
-	        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/views/fruit.jsp");
-	        dispatcher.forward(request, response);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+			CategoryDaoImpl dao = new CategoryDaoImpl(ConnectionUtils.getMSSQLConnection());
+			FruitDaoImpl fruitDao = new FruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+			CateFruitDaoImpl cateFruitDao = new CateFruitDaoImpl(ConnectionUtils.getMSSQLConnection());
+
+			List<Category> list = dao.getAllCate();
+			List<CategoryFruit> listCateFruit = cateFruitDao.getAllCateFruit();
+			List<Fruit> lst = fruitDao.getAllFruit();
+
+			// Lấy ID của danh mục được chọn từ request parameter (nếu có)
+			String categoryIdParam = request.getParameter("categoryId");
+			if (categoryIdParam != null && !categoryIdParam.isEmpty()) {
+				int categoryId = Integer.parseInt(categoryIdParam);
+				// Lấy danh sách sản phẩm thuộc danh mục được chọn
+				List<Fruit> filteredFruits = fruitDao.getFruitsByCategoryId(categoryId);
+				request.setAttribute("fruitList", filteredFruits);
+			} else {
+				request.setAttribute("fruitList", lst);
+			}
+			request.setAttribute("cateFruitList", listCateFruit);
+			request.setAttribute("cateList", list);
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/views/fruit.jsp");
+			dispatcher.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

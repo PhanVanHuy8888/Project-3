@@ -46,7 +46,7 @@ public class IndexServlet extends HttpServlet {
 	        dispatcher.forward(request, response);
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	       
+	        
 	    }
 	}
 

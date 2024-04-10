@@ -36,13 +36,14 @@ public class FruitDaoImpl implements FruitDao {
 		return false;
 	}
 
+	
 	@Override
 	public List<Fruit> getAllFruit() {
 		List<Fruit> lst = new ArrayList<Fruit>();
 		Fruit fruit = null;
 
 		try {
-			String sql = "Select * from fruit";
+			String sql = "SELECT * FROM fruit ORDER BY fruitId LIMIT 4 OFFSET 0;";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
@@ -179,7 +180,7 @@ public class FruitDaoImpl implements FruitDao {
 			e.printStackTrace();
 		}
 		return lst;
-		
+
 	}
 
 }

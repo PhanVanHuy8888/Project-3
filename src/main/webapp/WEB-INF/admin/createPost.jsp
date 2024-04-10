@@ -36,6 +36,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 	rel="stylesheet">
 
+
+<script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<div class="col-12 grid-margin stretch-card">
@@ -43,9 +45,9 @@
 			<div class="card-body">
 				<h4 class="card-title">Thêm mới bài viết Trending</h4>
 				<c:if test="${not empty fail}">
-                    <p class="text-center text-success">${fail}</p>
-                    <c:remove var="fail" scope="session"/>
-                </c:if>
+					<p class="text-center text-success">${fail}</p>
+					<c:remove var="fail" scope="session" />
+				</c:if>
 				<form action="postCreate" method="post"
 					enctype="multipart/form-data" class="forms-sample">
 					<div class="form-group">
@@ -54,9 +56,8 @@
 							placeholder="Tiêu đề">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail3">Mô tả</label> <input type="text"
-							name="description" class="form-control" id="exampleInputEmail3"
-							placeholder="Mô tả">
+						<label for="exampleInputEmail3">Mô tả</label>
+						<textarea id="description" name="description"></textarea>
 					</div>
 					<div class="form-group">
 						<div class="form-group">
@@ -71,5 +72,11 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		CKEDITOR.replace('description', {
+			extraPlugins : 'bbcode,justify,colorbutton,exportpdf' // Loại bỏ exportpdf khỏi danh sách plugin được kích hoạt
+		});
+		CKEDITOR.replace('description');
+	</script>
 </body>
 </html>

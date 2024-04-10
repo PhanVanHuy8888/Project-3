@@ -35,6 +35,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 	rel="stylesheet">
+<script src="rescource/ckeditor/ckeditor.js"></script>
 
 </head>
 <body>
@@ -43,9 +44,9 @@
 			<div class="card-body">
 				<h4 class="card-title">Thêm mới bài viết</h4>
 				<c:if test="${not empty fail}">
-                    <p class="text-center text-success">${fail}</p>
-                    <c:remove var="fail" scope="session"/>
-                </c:if>
+					<p class="text-center text-success">${fail}</p>
+					<c:remove var="fail" scope="session" />
+				</c:if>
 				<form action="blogCreate" method="post"
 					enctype="multipart/form-data" class="forms-sample">
 					<div class="form-group">
@@ -71,5 +72,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="form-group">
+		<label for="editor">Nội dung</label>
+		<textarea class="form-control" id="editor" name="content"></textarea>
+	</div>
+	<script>
+		CKEDITOR.replace('editor');
+	</script>
 </body>
 </html>

@@ -45,13 +45,14 @@ public class ViewFruit extends HttpServlet {
 
 			Fruit fruit = daoFruit.getFruitById(id);
 			List<Category> list = dao.getAllCate();
-
+			List<Fruit> lst = daoFruit.getAllFruit();
 			int categoryId = fruit.getCategoryFruitId();
 			String categoryFruitName = daoCate.getCateFruitNameById(categoryId);
-			
+
 			request.setAttribute("categoryFruitName", categoryFruitName);
 			request.setAttribute("cateList", list);
 			request.setAttribute("fruit", fruit);
+			request.setAttribute("fruitList", lst);
 			RequestDispatcher dispatcher = request.getServletContext()
 					.getRequestDispatcher("/WEB-INF/views/viewFruit.jsp");
 			dispatcher.forward(request, response);

@@ -26,6 +26,11 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 
 <style>
+.current-category {
+	color: yellow;
+	/* Hoặc bạn có thể thay đổi màu sắc hoặc bất kỳ thuộc tính CSS nào khác để làm nổi bật */
+}
+
 #toast {
 	min-width: 300px;
 	position: fixed;
@@ -106,8 +111,7 @@ to {
 							<h1 class="display-2 text-white animated slideInDown mb-4">Fruit</h1>
 							<a href=""
 								class="btn btn-primary rounded-pill me-3 animated slideInLeft">Trang
-								chủ</a> <i class="fa-solid fa-chevron-right"></i>
-							<a href=""
+								chủ</a> <i class="fa-solid fa-chevron-right"></i> <a href=""
 								class="btn btn-dark rounded-pill animated slideInRight">Sản
 								phẩm</a>
 
@@ -133,6 +137,7 @@ to {
 											class="nav-item nav-link" id="${cateFruit.categoryFruitId}"
 											onclick="selectCategory('${cateFruit.categoryFruitId}')">${cateFruit.categoryFruitName}</a>
 									</c:forEach>
+
 								</h6>
 							</div>
 						</div>
@@ -185,7 +190,6 @@ to {
 					</div>
 				</div>
 			</div>
-
 			<!-- Footer Start -->
 			<%@include file="../static/footer.jsp"%>
 			<!-- Footer End -->
