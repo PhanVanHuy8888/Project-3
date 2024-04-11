@@ -28,7 +28,7 @@
 		</li>
 
 		<li class="nav-item menu-items"><a class="nav-link"
-			href="cateList"> <span class="menu-icon"><i
+			href="userList"> <span class="menu-icon"><i
 					class="mdi mdi-security"></i> </span> <span class="menu-title">Tài
 					khoản</span>
 		</a></li>

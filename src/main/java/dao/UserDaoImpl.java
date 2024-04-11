@@ -1,6 +1,9 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import entity.User;
 
 public class UserDaoImpl implements UserDao {
@@ -72,6 +75,45 @@ public class UserDaoImpl implements UserDao {
 				return true;
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		List<User> lst = new ArrayList<User>();
+		try {
+			String sql = "select * from user";
+			PreparedStatement p = conn.prepareStatement(sql);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				User u = new User();
+				u.setId(rs.getInt(1));
+				u.setName(rs.getString(2));
+				u.setEmail(rs.getString(3));
+				u.setAddress(rs.getString(4));
+				u.setPhone(rs.getString(5));
+				lst.add(u);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return lst;
+	}
+	
+
+	@Override
+	public boolean deleteUser(int id) {
+		try {
+			String sql = "delete from user where id=?";
+			PreparedStatement p = conn.prepareStatement(sql);
+			p.setInt(1, id);
+			int i = p.executeUpdate();
+			if (i == 1) {
+				return true;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;

@@ -35,7 +35,10 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
 	rel="stylesheet">
-<script src="rescource/ckeditor/ckeditor.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="ckeditor/ckeditor.js"></script>
 
 </head>
 <body>
@@ -74,10 +77,15 @@
 	</div>
 	<div class="form-group">
 		<label for="editor">Nội dung</label>
-		<textarea class="form-control" id="editor" name="content"></textarea>
+		<textarea class="form-control" id="editor" name="editor"></textarea>
 	</div>
 	<script>
-		CKEDITOR.replace('editor');
+		$(document).ready(function() {
+			CKEDITOR.replace('editor', {
+				customConfig : 'ckeditor/ckeditor.js',
+				extraAllowedContent : 'span',
+			});
+		});
 	</script>
 </body>
 </html>
