@@ -46,12 +46,12 @@
 							</form>
 						</li>
 					</ul>
-					<c:if test="${not empty user }">
+					<c:if test="${not empty admin }">
 
 						<ul class="navbar-nav navbar-nav-right">
 							<li class="nav-item" style="margin-right: 10px;"><a
 								class="btn btn-success py-2 d-flex align-items-center"> <i
-									class="fas fa-user"></i><span> ${user.name}</span>
+									class="fas fa-user"></i><span> ${admin.name}</span>
 							</a></li>
 							<li class="nav-item"><a href="logout"
 								class="btn btn-primary py-2 d-flex align-items-center"> <i

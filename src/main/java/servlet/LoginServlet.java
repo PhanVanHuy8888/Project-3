@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 		    if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
 		        User adminUser = new User();
 		        adminUser.setName("Admin"); // Assuming there's a setName method in User class
-		        session.setAttribute("user", adminUser);
+		        session.setAttribute("admin", adminUser);
 		        response.sendRedirect("adminHome");
 //		        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/admin/home.jsp");
 		    } else {
